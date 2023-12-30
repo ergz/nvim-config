@@ -190,12 +190,16 @@ require('lazy').setup({
   },
 
   {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'onedark'
-    end,
+     'projekt0n/github-nvim-theme',
+  lazy = false, -- make sure we load this during startup if it is your main colorscheme
+  priority = 1000, -- make sure to load this before all the other start plugins
+  config = function()
+    require('github-theme').setup({
+      -- ...
+    })
+
+    vim.cmd('colorscheme github_dark_dimmed')
+  end,
   },
 
   {
@@ -205,7 +209,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark',
+        theme = '16color',
         component_separators = '|',
         section_separators = '',
       },
@@ -266,7 +270,7 @@ require('lazy').setup({
   --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {})
 
 -- [[ Setting options ]]
@@ -565,7 +569,7 @@ require('mason-lspconfig').setup()
 local servers = {
   -- clangd = {},
   -- gopls = {},
-  -- pyright = {},
+  pyright = {},
   -- rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
@@ -658,4 +662,39 @@ cmp.setup {
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
+-- vim: ts=2 sts=2 sw=2 e
+--
+--
+--
+--
+--
+-- Replace 'YourFont' with your desired font name and '11' with the size.
+
+--vim.opt.guifont = "Berkeley Mono Regular:h14"
+
+vim.api.nvim_set_keymap('n', '<C-Up>', '{', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-Down>', '}', { noremap = true, silent = true })
+
+-- Normal mode: Ctrl+S to save
+vim.api.nvim_set_keymap('n', '<C-S>', ':w<CR>', { noremap = true, silent = true })
+
+-- Insert mode: Ctrl+S to save and return to insert mode
+vim.api.nvim_set_keymap('i', '<C-S>', '<C-O>:w<CR><C-O>:startinsert<CR>', { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<A-\\>', ':Neotree toggle<CR>', { noremap = true, silent = true })
+
+
+-- Copy to system clipboard
+vim.api.nvim_set_keymap('v', '<C-c>', '"+y', { noremap = true, silent = true })
+
+
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
+augroup("__formatter__", { clear = true })
+autocmd("BufWritePost", {
+	group = "__formatter__",
+	command = ":FormatWrite",
+})
+
+
+
