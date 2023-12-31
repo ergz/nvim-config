@@ -276,9 +276,10 @@ require('lazy').setup({
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
-
 -- Set highlight on search
 vim.o.hlsearch = false
+
+vim.api.nvim_set_keymap('n', '<A-e>', ':Neotree source=filesystem focus<CR>', { noremap = true, silent = true })
 
 -- Make line numbers default
 vim.wo.number = true
@@ -315,7 +316,30 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 
 -- [[ Basic Keymaps ]]
+-- Move line down with Alt+j vim.api.nvim_set_keymap('n', '<A-j>', ':m .+1<CR>==', { noremap = true, silent = true }) vim.api.nvim_set_keymap('i', '<A-j>', '<Esc>:m .+1<CR>==gi', { noremap = true, silent = true })
 
+-- Map Tab to indent in visual mode
+vim.api.nvim_set_keymap('v', '<Tab>', '>gv', { noremap = true, silent = true })
+
+-- Map Shift+Tab to unindent in visual mode
+vim.api.nvim_set_keymap('v', '<S-Tab>', '<gv', { noremap = true, silent = true })
+-- Map Tab to indent in normal mode
+vim.api.nvim_set_keymap('n', '<Tab>', '>>', { noremap = true, silent = true })
+
+-- Map Shift+Tab to unindent in normal mode
+vim.api.nvim_set_keymap('n', '<S-Tab>', '<<', { noremap = true, silent = true })
+
+-- Move line down with Alt+j
+vim.api.nvim_set_keymap('n', '<A-j>', ':m .+1<CR>==', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<A-j>', ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
+
+-- Move line up with Alt+k
+vim.api.nvim_set_keymap('n', '<A-k>', ':m .-2<CR>==', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<A-k>', ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+
+
+vim.api.nvim_set_keymap('n', '<C-q>', '<Nop>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'q', '<Nop>', { noremap = true, silent = true })
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
@@ -575,7 +599,7 @@ require('mason-lspconfig').setup()
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
 local servers = {
-  -- clangd = {},
+  clangd = {},
   -- gopls = {},
   pyright = {},
   -- rust_analyzer = {},
