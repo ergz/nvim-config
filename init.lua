@@ -207,10 +207,16 @@ require('lazy').setup({
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
+    --
+    -- config = function()
+    --   require('lualine').setup{}
+    --     local custom_power_line_dark = require'lualine.themes.powerline_dark'
+    --     custom_power_line_dark.inactive.a.fg = "#202020"
+    -- end,
     opts = {
       options = {
         icons_enabled = false,
-        theme = '16color',
+        theme = 'base16',
         component_separators = '|',
         section_separators = '',
       },
@@ -321,6 +327,7 @@ vim.o.termguicolors = true
 -- [[ Basic Keymaps ]]
 -- Move line down with Alt+j vim.api.nvim_set_keymap('n', '<A-j>', ':m .+1<CR>==', { noremap = true, silent = true }) vim.api.nvim_set_keymap('i', '<A-j>', '<Esc>:m .+1<CR>==gi', { noremap = true, silent = true })
 
+vim.api.nvim_set_keymap('n', 'P', '<Nop>', { noremap = true, silent = true })
 -- Map Tab to indent in visual mode
 vim.api.nvim_set_keymap('v', '<Tab>', '>gv', { noremap = true, silent = true })
 
