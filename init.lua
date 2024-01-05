@@ -216,7 +216,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'base16',
+        -- theme = 'base16',
         component_separators = '|',
         section_separators = '',
       },
@@ -285,7 +285,6 @@ require('lazy').setup({
 -- NOTE: You can change these options as you wish!
 -- Set highlight on search
 vim.o.hlsearch = false
-
 vim.o.cursorline = true
 vim.api.nvim_set_hl(0, 'CursorLine', { bg = 'black', fg = nil })
 vim.api.nvim_set_keymap('n', '<A-e>', ':Neotree source=filesystem focus<CR>', { noremap = true, silent = true })
@@ -722,7 +721,7 @@ vim.api.nvim_set_keymap('n', '<C-Down>', '}', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-S>', ':w<CR>', { noremap = true, silent = true })
 
 -- Insert mode: Ctrl+S to save and return to insert mode
-vim.api.nvim_set_keymap('i', '<C-S>', '<C-O>:w<CR><C-O>:startinsert<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-s>', '<C-O>:w<CR><C-O>:startinsert<CR>', { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '<A-\\>', ':Neotree toggle<CR>', { noremap = true, silent = true })
 
