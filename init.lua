@@ -213,10 +213,11 @@ require('lazy').setup({
     --     local custom_power_line_dark = require'lualine.themes.powerline_dark'
     --     custom_power_line_dark.inactive.a.fg = "#202020"
     -- end,
+    dependencies = {'RRethy/nvim-base16'},
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'base16',
+        -- theme = require'base16-tomorrow-night',
         component_separators = '|',
         section_separators = '',
       },
@@ -713,11 +714,12 @@ cmp.setup {
 --
 -- Replace 'YourFont' with your desired font name and '11' with the size.
 
---vim.opt.guifont = "Berkeley Mono Regular:h14"
+vim.opt.guifont = "BerkeleyMono Nerd Font:h14"
 
 vim.api.nvim_set_keymap('n', '<C-Up>', '{', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-Down>', '}', { noremap = true, silent = true })
-
+vim.api.nvim_set_keymap('n', '}', '{', {noremap = true})
+vim.api.nvim_set_keymap('n', '{', '}', {noremap = true})
 -- Normal mode: Ctrl+S to save
 vim.api.nvim_set_keymap('n', '<C-S>', ':w<CR>', { noremap = true, silent = true })
 

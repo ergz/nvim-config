@@ -18,6 +18,7 @@
   "neodev.nvim": { "branch": "main", "commit": "8526ce7de23e04735827a4e3f78ff634880181c5" },
   "nui.nvim": { "branch": "main", "commit": "80445d015d2b5f9af0d9e8bce63d303bc86eda8a" },
   "nvim-autopairs": { "branch": "master", "commit": "9fd41181693dd4106b3e414a822bb6569924de81" },
+  "nvim-base16": { "branch": "master", "commit": "010bedf0b7c01ab4d4e4e896a8527d97c222351d" },
   "nvim-cmp": { "branch": "main", "commit": "538e37ba87284942c1d76ed38dd497e54e65b891" },
   "nvim-lspconfig": { "branch": "master", "commit": "0d9e870d01894c592d7ea93cfe0fa451916d9a7f" },
   "nvim-treesitter": { "branch": "master", "commit": "362ebd3a210f20aab80be05557f216cbaf4531e6" },
