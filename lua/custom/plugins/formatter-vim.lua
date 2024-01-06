@@ -14,7 +14,10 @@ return {
     -- and will be executed in order
     python = {
           require("formatter.filetypes.python").black
-        }
+        },
+    -- javascript = {
+    --       require("formatter.filetypes.javascript").prettier
+    --     }
   }
 }
   end,
