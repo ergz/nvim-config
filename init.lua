@@ -85,9 +85,7 @@ require('lazy').setup({
       -- Automatically install LSPs to stdpath for neovim
       { 'williamboman/mason.nvim', config = true },
       'williamboman/mason-lspconfig.nvim',
-
-      -- Useful status updates for LSP
-      -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
+-- Useful status updates for LSP NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       { 'j-hui/fidget.nvim', opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
@@ -190,34 +188,29 @@ require('lazy').setup({
     },
   },
 
-  {
-     'projekt0n/github-nvim-theme',
-  lazy = false, -- make sure we load this during startup if it is your main colorscheme
-  priority = 1000, -- make sure to load this before all the other start plugins
-  config = function()
-    require('github-theme').setup({
-      -- ...
-    })
-
-    vim.cmd('colorscheme github_dark_dimmed')
-  end,
-  },
-
+  -- {
+  --    'projekt0n/github-nvim-theme',
+  -- lazy = false, -- make sure we load this during startup if it is your main colorscheme
+  -- priority = 1000, -- make sure to load this before all the other start plugins
+  -- config = function()
+  --   require('github-theme').setup({
+  --     -- ...
+  --   })
+  --
+  --   vim.cmd('colorscheme base16-tomorrow-night')
+  -- end,
+  -- },
+  --
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
     --
-    -- config = function()
-    --   require('lualine').setup{}
-    --     local custom_power_line_dark = require'lualine.themes.powerline_dark'
-    --     custom_power_line_dark.inactive.a.fg = "#202020"
-    -- end,
-    dependencies = {'RRethy/nvim-base16'},
+    -- dependencies = {'chriskempson/base16-vim'},
     opts = {
       options = {
         icons_enabled = false,
-        -- theme = 'base16',
+        theme = 'auto',
         component_separators = '|',
         section_separators = '',
       },
@@ -743,6 +736,7 @@ autocmd("BufWritePost", {
 
 vim.cmd [[highlight iCursor guibg=fffag ctermbg=229]]
 vim.cmd [[set guicursor=i-ci:ver100-iCursor]]
+
 --
 -- vim.cmd [[
 -- highlight Cursor guibg=#ff0000 guifg=white ctermbg=196
