@@ -227,6 +227,7 @@ require('lazy').setup({
     },
   },
 
+  {'akinsho/toggleterm.nvim', version = "*", opts = {open_mapping = "<C-\\>", direction="float"}},
   {
     -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
@@ -349,7 +350,6 @@ vim.api.nvim_set_keymap('v', '<A-j>', ":m '>+1<CR>gv=gv", { noremap = true, sile
 -- Move line up with Alt+k
 vim.api.nvim_set_keymap('n', '<A-k>', ':m .-2<CR>==', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<A-k>', ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
-
 
 vim.api.nvim_set_keymap('n', '<C-q>', '<Nop>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'q', '<Nop>', { noremap = true, silent = true })
@@ -731,7 +731,6 @@ vim.api.nvim_set_keymap('i', '<C-s>', '<C-O>:w<CR><C-O>:startinsert<CR>', { nore
 
 vim.api.nvim_set_keymap('n', '<A-\\>', ':Neotree toggle<CR>', { noremap = true, silent = true })
 
-
 -- Copy to system clipboard
 vim.api.nvim_set_keymap('v', '<C-c>', '"+y', { noremap = true, silent = true })
 
@@ -778,23 +777,23 @@ vim.opt.expandtab = true
 --   end
 --   print('No build.bat file found')
 -- end
-function _G.run_build_bat()
-  local current_dir = vim.fn.expand('%:p:h')
-  local build_bat_path = vim.fn.findfile('build.bat', current_dir .. ';')
-  if build_bat_path == '' then
-    print('No build.bat file found')
-    return
-  end
-
-  -- Use toggleterm to run the build.bat script
-  local Terminal = require('toggleterm.terminal').Terminal
-  local build_bat_terminal = Terminal:new({
-    cmd = 'cmd /K ' .. build_bat_path,
-    hidden = false,
-    direction = "horizontal", -- or "horizontal", "vertical", "tab"
-    close_on_exit = false, -- keep the terminal window open after the command execution
-  })
-
-  build_bat_terminal:toggle()
-end
-vim.api.nvim_set_keymap('n', '<F5>', ':lua run_build_bat()<CR>', { noremap = true, silent = false })
+-- function _G.run_build_bat()
+--   local current_dir = vim.fn.expand('%:p:h')
+--   local build_bat_path = vim.fn.findfile('build.bat', current_dir .. ';')
+--   if build_bat_path == '' then
+--     print('No build.bat file found')
+--     return
+--   end
+--
+--   -- Use toggleterm to run the build.bat script
+--   local Terminal = require('toggleterm.terminal').Terminal
+--   local build_bat_terminal = Terminal:new({
+--     cmd = 'cmd /K ' .. build_bat_path,
+--     hidden = false,
+--     direction = "horizontal", -- or "horizontal", "vertical", "tab"
+--     close_on_exit = false, -- keep the terminal window open after the command execution
+--   })
+--
+--   build_bat_terminal:toggle()
+-- end
+-- vim.api.nvim_set_keymap('n', '<F5>', ':lua run_build_bat()<CR>', { noremap = true, silent = false })
