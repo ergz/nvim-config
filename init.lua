@@ -797,3 +797,4 @@ vim.opt.expandtab = true
 --   build_bat_terminal:toggle()
 -- end
 -- vim.api.nvim_set_keymap('n', '<F5>', ':lua run_build_bat()<CR>', { noremap = true, silent = false })
+vim.api.nvim_set_keymap("n", "<C-B>", ":TermExec cmd=build.bat<CR>", {noremap=true, silent=true})
