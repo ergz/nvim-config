@@ -227,7 +227,15 @@ require('lazy').setup({
     },
   },
 
-  {'akinsho/toggleterm.nvim', version = "*", opts = {open_mapping = "<C-\\>", direction="float"}},
+  {'akinsho/toggleterm.nvim', 
+    version = "*", 
+    opts = {
+      open_mapping = "<C-\\>", direction="float", 
+      float_opts = {
+        border = 'curved'
+      }
+
+    }},
   {
     -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
@@ -764,37 +772,6 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
-
--- function _G.run_build_bat()
---   local current_dir = vim.fn.expand('%:p:h')
---   while current_dir ~= "" and current_dir ~= nil do
---     local build_bat_path = current_dir .. '\\build.bat'
---     if vim.fn.filereadable(build_bat_path) == 1 then
---       vim.cmd('!start cmd /K ' .. build_bat_path)
---       return
---     end
---     current_dir = vim.fn.fnamemodify(current_dir, ':h')
---   end
---   print('No build.bat file found')
--- end
--- function _G.run_build_bat()
---   local current_dir = vim.fn.expand('%:p:h')
---   local build_bat_path = vim.fn.findfile('build.bat', current_dir .. ';')
---   if build_bat_path == '' then
---     print('No build.bat file found')
---     return
---   end
---
---   -- Use toggleterm to run the build.bat script
---   local Terminal = require('toggleterm.terminal').Terminal
---   local build_bat_terminal = Terminal:new({
---     cmd = 'cmd /K ' .. build_bat_path,
---     hidden = false,
---     direction = "horizontal", -- or "horizontal", "vertical", "tab"
---     close_on_exit = false, -- keep the terminal window open after the command execution
---   })
---
---   build_bat_terminal:toggle()
--- end
--- vim.api.nvim_set_keymap('n', '<F5>', ':lua run_build_bat()<CR>', { noremap = true, silent = false })
-vim.api.nvim_set_keymap("n", "<C-B>", ":TermExec cmd=build.bat<CR>", {noremap=true, silent=true})
+vim.api.nvim_set_keymap("n", "<C-B>", ":TermExec cmd=build.bat<CR>", {noremap=true, silent=false})
+vim.api.nvim_set_keymap("i", "<C-B>", ":TermExec cmd=build.bat<CR>", {noremap=true, silent=true})
+vim.api.nvim_set_keymap('n', '<C-D>', ':t.<CR>', {noremap = true, silent = true})
