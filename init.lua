@@ -723,6 +723,9 @@ vim.api.nvim_set_keymap('n', '<C-Up>', '{', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-Down>', '}', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '}', '{', {noremap = true})
 vim.api.nvim_set_keymap('n', '{', '}', {noremap = true})
+
+vim.api.nvim_set_keymap('v', '}', '{', {noremap = true})
+vim.api.nvim_set_keymap('v', '{', '}', {noremap = true})
 -- Normal mode: Ctrl+S to save
 vim.api.nvim_set_keymap('n', '<C-S>', ':w<CR>', { noremap = true, silent = true })
 
