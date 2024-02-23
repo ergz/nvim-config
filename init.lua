@@ -190,13 +190,13 @@ require('lazy').setup({
 
 
 
-  -- {
-  --   'RRethy/nvim-base16',
-  --   config = function()
-  --     -- Set the base16 color theme
-  --     vim.cmd('colorscheme base16-tomorrow-night')
-  --   end
-  -- }
+ --  {
+ --    'RRethy/nvim-base16',
+ --    config = function()
+ --      -- Set the base16 color theme
+ --      vim.cmd('colorscheme base16-tomorrow-night')
+ --    end
+ -- },
   --
   {
      'projekt0n/github-nvim-theme',
@@ -227,6 +227,15 @@ require('lazy').setup({
     },
   },
 
+  {'akinsho/toggleterm.nvim', 
+    version = "*", 
+    opts = {
+      open_mapping = "<C-\\>", direction="float", 
+      float_opts = {
+        border = 'curved'
+      }
+
+    }},
   {
     -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
@@ -349,7 +358,6 @@ vim.api.nvim_set_keymap('v', '<A-j>', ":m '>+1<CR>gv=gv", { noremap = true, sile
 -- Move line up with Alt+k
 vim.api.nvim_set_keymap('n', '<A-k>', ':m .-2<CR>==', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<A-k>', ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
-
 
 vim.api.nvim_set_keymap('n', '<C-q>', '<Nop>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'q', '<Nop>', { noremap = true, silent = true })
@@ -734,7 +742,6 @@ vim.api.nvim_set_keymap('i', '<C-s>', '<C-O>:w<CR><C-O>:startinsert<CR>', { nore
 
 vim.api.nvim_set_keymap('n', '<A-\\>', ':Neotree toggle<CR>', { noremap = true, silent = true })
 
-
 -- Copy to system clipboard
 vim.api.nvim_set_keymap('v', '<C-c>', '"+y', { noremap = true, silent = true })
 
@@ -768,4 +775,6 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
-
+vim.api.nvim_set_keymap("n", "<C-B>", ":TermExec cmd=build.bat<CR>", {noremap=true, silent=false})
+vim.api.nvim_set_keymap("i", "<C-B>", ":TermExec cmd=build.bat<CR>", {noremap=true, silent=true})
+vim.api.nvim_set_keymap('n', '<C-D>', ':t.<CR>', {noremap = true, silent = true})
