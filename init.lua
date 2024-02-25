@@ -624,7 +624,8 @@ require('mason-lspconfig').setup()
 local servers = {
   clangd = {},
   gopls = {},
-  pyright = {},
+  -- pyright = {},
+  ruff_lsp = {},
   -- rust_analyzer = {},
   tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
@@ -775,3 +776,4 @@ vim.opt.expandtab = true
 vim.api.nvim_set_keymap("n", "<C-B>", ":TermExec cmd=build.bat<CR>", {noremap=true, silent=false})
 vim.api.nvim_set_keymap("i", "<C-B>", ":TermExec cmd=build.bat<CR>", {noremap=true, silent=true})
 vim.api.nvim_set_keymap('n', '<C-D>', ':t.<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', 'q', 'b', { noremap = true })
