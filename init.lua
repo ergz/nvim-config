@@ -781,6 +781,7 @@ vim.cmd [[set guicursor=i-ci:ver100-iCursor]]
 --   \,o:hor50-Cursor/lCursor
 --   \,sm:block-iCursor
 -- ]]
+
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
@@ -789,3 +790,5 @@ vim.api.nvim_set_keymap("n", "<C-B>", ":TermExec cmd=build.bat<CR>", {noremap=tr
 vim.api.nvim_set_keymap("i", "<C-B>", ":TermExec cmd=build.bat<CR>", {noremap=true, silent=true})
 vim.api.nvim_set_keymap('n', '<C-D>', ':t.<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'q', 'b', { noremap = true })
+
+
