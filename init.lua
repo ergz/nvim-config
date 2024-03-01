@@ -207,7 +207,7 @@ require('lazy').setup({
       -- ...
     })
 
-    vim.cmd('colorscheme github_dark_dimmed')
+    vim.cmd('colorscheme github_dark_default')
   end,
   },
   --
@@ -732,6 +732,9 @@ vim.api.nvim_set_keymap('n', '<C-Up>', '{', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-Down>', '}', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '}', '{', {noremap = true})
 vim.api.nvim_set_keymap('n', '{', '}', {noremap = true})
+
+vim.api.nvim_set_keymap('v', '}', '{', {noremap = true})
+vim.api.nvim_set_keymap('v', '{', '}', {noremap = true})
 -- Normal mode: Ctrl+S to save
 vim.api.nvim_set_keymap('n', '<C-S>', ':w<CR>', { noremap = true, silent = true })
 
@@ -777,3 +780,4 @@ vim.api.nvim_set_keymap("n", "<C-B>", ":TermExec cmd=build.bat<CR>", {noremap=tr
 vim.api.nvim_set_keymap("i", "<C-B>", ":TermExec cmd=build.bat<CR>", {noremap=true, silent=true})
 vim.api.nvim_set_keymap('n', '<C-D>', ':t.<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'q', 'b', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-T>', ":tabNext<CR>", {noremap=true, silent=false})
