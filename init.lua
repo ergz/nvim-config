@@ -210,6 +210,15 @@ require('lazy').setup({
     vim.cmd('colorscheme github_dark_default')
   end,
   },
+  -- {
+  --   'kepano/flexoki-neovim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     require('flexoki').setup({})
+  --     vim.cmd('colorscheme flexoki-dark')
+  --   end,
+  -- },
   --
   {
     -- Set lualine as statusline
@@ -624,8 +633,8 @@ require('mason-lspconfig').setup()
 local servers = {
   clangd = {},
   gopls = {},
-  -- pyright = {},
   ruff_lsp = {},
+  -- pyright = {},
   -- rust_analyzer = {},
   tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
