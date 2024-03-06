@@ -43,7 +43,6 @@ P.S. You can delete this when you're done too. It's your config now :)
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
@@ -220,22 +219,25 @@ require('lazy').setup({
   --   end,
   -- },
   --
-  {
-    -- Set lualine as statusline
+{
     'nvim-lualine/lualine.nvim',
-    -- See `:help lualine.txt`
-    --
-    -- dependencies = {'chriskempson/base16-vim'},
-    opts = {
-      options = {
-        icons_enabled = false,
-        theme = 'auto',
-        component_separators = '|',
-        section_separators = '',
-      },
-    },
+    -- Optionally, you can specify dependencies here if needed
+    -- dependencies = { 'chriskempson/base16-vim' },
+    config = function()
+      -- Your theme customization and setup
+      local custom_powerline_dark = require('lualine.themes.powerline_dark')
+      custom_powerline_dark.inactive.c.fg = '#9c9c9c'
+      
+      require('lualine').setup({
+        options = {
+          icons_enabled = false,
+          theme = custom_powerline_dark, -- Use the customized theme here
+          component_separators = '|',
+          section_separators = '',
+        },
+      })
+    end,
   },
-
   {'akinsho/toggleterm.nvim', 
     version = "*", 
     opts = {
