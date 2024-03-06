@@ -783,6 +783,7 @@ vim.cmd [[set guicursor=i-ci:ver100-iCursor]]
 --   \,o:hor50-Cursor/lCursor
 --   \,sm:block-iCursor
 -- ]]
+
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
