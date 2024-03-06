@@ -792,4 +792,9 @@ vim.api.nvim_set_keymap("n", "<C-B>", ":TermExec cmd=build.bat<CR>", {noremap=tr
 vim.api.nvim_set_keymap("i", "<C-B>", ":TermExec cmd=build.bat<CR>", {noremap=true, silent=true})
 vim.api.nvim_set_keymap('n', '<C-D>', ':t.<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'q', 'b', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-T>', ":tabNext<CR>", {noremap=true, silent=false})
+
+-- Mapping leader key + 1/2/3/4 to switch to tab 1/2/3/4 directly
+vim.api.nvim_set_keymap('n', '<leader>1', ':tabn 1<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>2', ':tabn 2<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>3', ':tabn 3<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>4', ':tabn 4<CR>', { noremap = true, silent = true })
