@@ -210,6 +210,14 @@ require('lazy').setup({
   end,
   },
   -- {
+  --   "sainnhe/sonokai",
+  --   lazy = false,
+  --   config = function() 
+  --     vim.g.sonokai_style = "shusia"
+  --     vim.cmd('colorscheme sonokai')
+  --   end,
+  -- },
+  -- {
   --   'kepano/flexoki-neovim',
   --   lazy = false,
   --   priority = 1000,
