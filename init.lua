@@ -199,8 +199,8 @@ require('lazy').setup({
   --
   {
      'projekt0n/github-nvim-theme',
-  lazy = false, -- make sure we load this during startup if it is your main colorscheme
-  priority = 1000, -- make sure to load this before all the other start plugins
+  lazy = false, 
+  priority = 1000, 
   config = function()
     require('github-theme').setup({
       -- ...
@@ -213,29 +213,10 @@ require('lazy').setup({
   --   "sainnhe/sonokai",
   --   lazy = false,
   --   config = function() 
-  --     vim.g.sonokai_style = "shusia"
+  --     vim.g.sonokai_style = "maia"
   --     vim.cmd('colorscheme sonokai')
   --   end,
   -- },
-  -- {
-  --   'kepano/flexoki-neovim',
-  --   lazy = false,
-  --   priority = 1000,
-  --   config = function()
-  --     require('flexoki').setup({})
-  --     vim.cmd('colorscheme flexoki-dark')
-  --   end,
-  -- },
-  --
-  {'akinsho/toggleterm.nvim', 
-    version = "*", 
-    opts = {
-      open_mapping = "<C-\\>", direction="float", 
-      float_opts = {
-        border = 'curved'
-      }
-
-    }},
   {
     -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
