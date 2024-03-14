@@ -195,17 +195,26 @@ require('lazy').setup({
  --    end
  -- },
   --
+  -- {
+  --    'projekt0n/github-nvim-theme',
+  -- lazy = false, 
+  -- priority = 1000, 
+  -- config = function()
+  --   require('github-theme').setup({
+  --     -- ...
+  --   })
+  --
+  --   vim.cmd('colorscheme github_dark_default')
+  -- end,
+  -- },
   {
-     'projekt0n/github-nvim-theme',
-  lazy = false, 
-  priority = 1000, 
-  config = function()
-    require('github-theme').setup({
-      -- ...
-    })
-
-    vim.cmd('colorscheme github_dark_default')
-  end,
+      'madyanov/gruber.vim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      -- require('gruber').setup()
+      vim.cmd('colorscheme gruber')
+    end
   },
   -- {
   --   'blazkowolf/gruber-darker.nvim',
