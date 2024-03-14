@@ -210,6 +210,16 @@ require('lazy').setup({
   end,
   },
   -- {
+  --   'blazkowolf/gruber-darker.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+	 --    require('gruber-darker').setup({
+	 --    })
+	 --    vim.cmd('colorscheme gruber-darker')
+  --   end
+  -- },
+  -- {
   --   "sainnhe/sonokai",
   --   lazy = false,
   --   config = function() 
