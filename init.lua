@@ -1,9 +1,7 @@
 --[[
-
 =====================================================================
 ==================== READ THIS BEFORE CONTINUING ====================
 =====================================================================
-
 Kickstart.nvim is *not* a distribution.
 
 Kickstart.nvim is a template for your own configuration.
@@ -787,3 +785,5 @@ vim.api.nvim_set_keymap('n', '<leader>1', ':tabn 1<CR>', { noremap = true, silen
 vim.api.nvim_set_keymap('n', '<leader>2', ':tabn 2<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>3', ':tabn 3<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>4', ':tabn 4<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<C-d>', '"_d', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', 'dd', '"_dd', {noremap = true, silent = true})
