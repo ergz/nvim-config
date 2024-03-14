@@ -12,7 +12,8 @@ return {
   config = function ()
     require('neo-tree').setup({
       window = {width = 30, position = "current"}, 
-      filesystem = {filtered_items = {visible=true}}
+      filesystem = {filtered_items = {visible=true}},
+      close_if_last_window = false
     })
   end,
 }
