@@ -623,11 +623,22 @@ local servers = {
   clangd = {},
   gopls = {},
   ruff_lsp = {},
-  -- pyright = {},
+  pyright = {
+    pyright = {
+      -- Using Ruff's import organizer
+      disableOrganizeImports = true,
+    },
+    python = {
+      analysis = {
+        -- Ignore all files for analysis to exclusively use Ruff for linting
+        ignore = { '*' },
+      },
+    },
+  },
   -- rust_analyzer = {},
   tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
-  svelte = {filetypes = {'svelte'}},
+  svelte = {},   
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -787,3 +798,6 @@ vim.api.nvim_set_keymap('n', '<leader>3', ':tabn 3<CR>', { noremap = true, silen
 vim.api.nvim_set_keymap('n', '<leader>4', ':tabn 4<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<C-d>', '"_d', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'dd', '"_dd', {noremap = true, silent = true})
+
+-- Overwrite comment color
+vim.api.nvim_set_hl(0, 'Comment', { fg = '#8a8686', italic=true})
