@@ -630,19 +630,20 @@ require('mason-lspconfig').setup()
 local servers = {
   clangd = {},
   gopls = {},
-  ruff_lsp = {},
-  pyright = {
-    pyright = {
-      -- Using Ruff's import organizer
-      disableOrganizeImports = true,
-    },
-    python = {
-      analysis = {
-        -- Ignore all files for analysis to exclusively use Ruff for linting
-        ignore = { '*' },
-      },
-    },
-  },
+  -- ruff_lsp = {},
+  -- pyright = {
+  --   pyright = {
+  --     -- Using Ruff's import organizer
+  --     disableOrganizeImports = true,
+  --   },
+  --   python = {
+  --     analysis = {
+  --       -- Ignore all files for analysis to exclusively use Ruff for linting
+  --       ignore = { '*' },
+  --     },
+  --   },
+  -- },
+  pyright = {},
   -- rust_analyzer = {},
   tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
