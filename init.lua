@@ -207,14 +207,22 @@ require('lazy').setup({
   --   vim.cmd('colorscheme github_dark_default')
   -- end,
   -- },
+  -- {
+  --     'madyanov/gruber.vim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     -- require('gruber').setup()
+  --     vim.cmd('colorscheme gruber')
+  --   end
+  -- },
   {
-      'madyanov/gruber.vim',
-    lazy = false,
+    "catppuccin/nvim", 
+    name = "catppuccin", 
     priority = 1000,
     config = function()
-      -- require('gruber').setup()
-      vim.cmd('colorscheme gruber')
-    end
+      vim.cmd('colorscheme catppuccin-mocha')
+      end
   },
   -- {
   --   'blazkowolf/gruber-darker.nvim',
