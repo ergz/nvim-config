@@ -801,3 +801,5 @@ vim.api.nvim_set_keymap('n', 'dd', '"_dd', {noremap = true, silent = true})
 
 -- Overwrite comment color
 vim.api.nvim_set_hl(0, 'Comment', { fg = '#8a8686', italic=true})
+
+vim.opt.scrolloff = 999
