@@ -221,6 +221,30 @@ require('lazy').setup({
     name = "catppuccin", 
     priority = 1000,
     config = function()
+      require("catppuccin").setup({
+      
+        integrations = {
+          neotree = true,
+          native_lsp = {
+            enabled = true,
+            virtual_text = {
+                errors = { "italic" },
+                hints = { "italic" },
+                warnings = { "italic" },
+                information = { "italic" },
+            },
+            underlines = {
+                errors = { "underline" },
+                hints = { "underline" },
+                warnings = { "underline" },
+                information = { "underline" },
+            },
+            inlay_hints = {
+                background = true,
+            },
+        },
+        }
+      })
       vim.cmd('colorscheme catppuccin-mocha')
       end
   },
@@ -578,6 +602,18 @@ local on_attach = function(_, bufnr)
   nmap('<C-j>', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
   nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
+  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+    vim.lsp.handlers.hover, {
+      border = "rounded"
+    }
+  )
+
+  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+    vim.lsp.handlers.signature_help, {
+      border = "rounded"
+    }
+  )
+
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
   nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
@@ -699,6 +735,10 @@ cmp.setup {
   completion = {
     completeopt = 'menu,menuone,noinsert',
   },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered()
+  },
   mapping = cmp.mapping.preset.insert {
     ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -811,4 +851,4 @@ vim.api.nvim_set_keymap('n', 'dd', '"_dd', {noremap = true, silent = true})
 -- Overwrite comment color
 vim.api.nvim_set_hl(0, 'Comment', { fg = '#8a8686', italic=true})
 
-vim.opt.scrolloff = 999
+-- vim.opt.scrolloff = 999
