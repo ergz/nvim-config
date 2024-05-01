@@ -207,13 +207,26 @@ require('lazy').setup({
   --   vim.cmd('colorscheme github_dark_default')
   -- end,
   -- },
-  {
-      'madyanov/gruber.vim',
-    lazy = false,
-    priority = 1000,
+  -- {
+  --     'madyanov/gruber.vim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     -- require('gruber').setup()
+  --     vim.cmd('colorscheme gruber')
+  --   end
+  -- },
+  { 
+    "catppuccin/nvim", 
+    name = "catppuccin", 
+    priority = 1000 ,
     config = function()
-      -- require('gruber').setup()
-      vim.cmd('colorscheme gruber')
+      require("catppuccin").setup({
+        integrations = {
+          nvimtree = true
+        }
+      })
+      vim.cmd('colorscheme catppuccin-mocha')
     end
   },
   -- {
@@ -622,19 +635,20 @@ require('mason-lspconfig').setup()
 local servers = {
   clangd = {},
   gopls = {},
-  ruff_lsp = {},
-  pyright = {
-    pyright = {
-      -- Using Ruff's import organizer
-      disableOrganizeImports = true,
-    },
-    python = {
-      analysis = {
-        -- Ignore all files for analysis to exclusively use Ruff for linting
-        ignore = { '*' },
-      },
-    },
-  },
+  -- ruff_lsp = {},
+  -- pyright = {
+  --   pyright = {
+  --     -- Using Ruff's import organizer
+  --     disableOrganizeImports = true,
+  --   },
+  --   python = {
+  --     analysis = {
+  --       -- Ignore all files for analysis to exclusively use Ruff for linting
+  --       ignore = { '*' },
+  --     },
+  --   },
+  -- },
+  pyright = {},
   -- rust_analyzer = {},
   tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
@@ -790,6 +804,7 @@ vim.api.nvim_set_keymap("n", "<C-B>", ":TermExec cmd=build.bat<CR>", {noremap=tr
 vim.api.nvim_set_keymap("i", "<C-B>", ":TermExec cmd=build.bat<CR>", {noremap=true, silent=true})
 vim.api.nvim_set_keymap('n', '<C-D>', ':t.<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'q', 'b', { noremap = true })
+vim.api.nvim_set_keymap('v', '<C-D>', "y'>p", {noremap = true, silent = true})
 
 -- Mapping leader key + 1/2/3/4 to switch to tab 1/2/3/4 directly
 vim.api.nvim_set_keymap('n', '<leader>1', ':tabn 1<CR>', { noremap = true, silent = true })
@@ -801,3 +816,7 @@ vim.api.nvim_set_keymap('n', 'dd', '"_dd', {noremap = true, silent = true})
 
 -- Overwrite comment color
 vim.api.nvim_set_hl(0, 'Comment', { fg = '#8a8686', italic=true})
+
+vim.api.nvim_set_keymap('n', '<Leader><Tab>', ':tabnext<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader><S-Tab>', ':tabprevious<CR>', { noremap = true, silent = true })
+vim.opt.scrolloff = 999
