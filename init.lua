@@ -187,66 +187,38 @@ require('lazy').setup({
 
 
 
- --  {
- --    'RRethy/nvim-base16',
- --    config = function()
- --      -- Set the base16 color theme
- --      vim.cmd('colorscheme base16-tomorrow-night')
- --    end
- -- },
-  --
-  -- {
-  --    'projekt0n/github-nvim-theme',
-  -- lazy = false, 
-  -- priority = 1000, 
-  -- config = function()
-  --   require('github-theme').setup({
-  --     -- ...
-  --   })
-  --
-  --   vim.cmd('colorscheme github_dark_default')
-  -- end,
-  -- },
-  -- {
-  --     'madyanov/gruber.vim',
-  --   lazy = false,
-  --   priority = 1000,
-  --   config = function()
-  --     -- require('gruber').setup()
-  --     vim.cmd('colorscheme gruber')
-  --   end
-  -- },
-  { 
+  {
     "catppuccin/nvim", 
     name = "catppuccin", 
-    priority = 1000 ,
+    priority = 1000,
     config = function()
       require("catppuccin").setup({
+      
         integrations = {
-          nvimtree = true
+          neotree = true,
+          native_lsp = {
+            enabled = true,
+            virtual_text = {
+                errors = { "italic" },
+                hints = { "italic" },
+                warnings = { "italic" },
+                information = { "italic" },
+            },
+            underlines = {
+                errors = { "underline" },
+                hints = { "underline" },
+                warnings = { "underline" },
+                information = { "underline" },
+            },
+            inlay_hints = {
+                background = true,
+            },
+        },
         }
       })
       vim.cmd('colorscheme catppuccin-mocha')
-    end
+      end
   },
-  -- {
-  --   'blazkowolf/gruber-darker.nvim',
-  --   lazy = false,
-  --   priority = 1000,
-  --   config = function()
-	 --    require('gruber-darker').setup({
-	 --    })
-	 --    vim.cmd('colorscheme gruber-darker')
-  --   end
-  -- },
-  -- {
-  --   "sainnhe/sonokai",
-  --   lazy = false,
-  --   config = function() 
-  --     vim.g.sonokai_style = "maia"
-  --     vim.cmd('colorscheme sonokai')
-  --   end,
-  -- },
   {
     -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
@@ -583,6 +555,18 @@ local on_attach = function(_, bufnr)
   nmap('<C-j>', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
   nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
+  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+    vim.lsp.handlers.hover, {
+      border = "rounded"
+    }
+  )
+
+  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+    vim.lsp.handlers.signature_help, {
+      border = "rounded"
+    }
+  )
+
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
   nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
@@ -704,6 +688,10 @@ cmp.setup {
   completion = {
     completeopt = 'menu,menuone,noinsert',
   },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered()
+  },
   mapping = cmp.mapping.preset.insert {
     ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -815,8 +803,8 @@ vim.api.nvim_set_keymap('v', '<C-d>', '"_d', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'dd', '"_dd', {noremap = true, silent = true})
 
 -- Overwrite comment color
-vim.api.nvim_set_hl(0, 'Comment', { fg = '#8a8686', italic=true})
 
 vim.api.nvim_set_keymap('n', '<Leader><Tab>', ':tabnext<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader><S-Tab>', ':tabprevious<CR>', { noremap = true, silent = true })
 vim.opt.scrolloff = 999
+-- vim.opt.scrolloff = 999

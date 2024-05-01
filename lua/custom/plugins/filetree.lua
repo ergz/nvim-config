@@ -13,8 +13,20 @@ return {
     require('neo-tree').setup({
       window = {width = 30, position = "left"}, 
       filesystem = {filtered_items = {visible=true}},
-      close_if_last_window = false
+      close_if_last_window = true,
+      event_handlers = {
 
+          {
+            event = "file_opened",
+            handler = function(file_path)
+              -- auto close
+              -- vimc.cmd("Neotree close")
+              -- OR
+              require("neo-tree.command").execute({ action = "close" })
+            end
+          },
+
+        }
     })
   end,
 }
