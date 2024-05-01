@@ -187,35 +187,6 @@ require('lazy').setup({
 
 
 
- --  {
- --    'RRethy/nvim-base16',
- --    config = function()
- --      -- Set the base16 color theme
- --      vim.cmd('colorscheme base16-tomorrow-night')
- --    end
- -- },
-  --
-  -- {
-  --    'projekt0n/github-nvim-theme',
-  -- lazy = false, 
-  -- priority = 1000, 
-  -- config = function()
-  --   require('github-theme').setup({
-  --     -- ...
-  --   })
-  --
-  --   vim.cmd('colorscheme github_dark_default')
-  -- end,
-  -- },
-  -- {
-  --     'madyanov/gruber.vim',
-  --   lazy = false,
-  --   priority = 1000,
-  --   config = function()
-  --     -- require('gruber').setup()
-  --     vim.cmd('colorscheme gruber')
-  --   end
-  -- },
   {
     "catppuccin/nvim", 
     name = "catppuccin", 
@@ -248,24 +219,6 @@ require('lazy').setup({
       vim.cmd('colorscheme catppuccin-mocha')
       end
   },
-  -- {
-  --   'blazkowolf/gruber-darker.nvim',
-  --   lazy = false,
-  --   priority = 1000,
-  --   config = function()
-	 --    require('gruber-darker').setup({
-	 --    })
-	 --    vim.cmd('colorscheme gruber-darker')
-  --   end
-  -- },
-  -- {
-  --   "sainnhe/sonokai",
-  --   lazy = false,
-  --   config = function() 
-  --     vim.g.sonokai_style = "maia"
-  --     vim.cmd('colorscheme sonokai')
-  --   end,
-  -- },
   {
     -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
@@ -839,6 +792,7 @@ vim.api.nvim_set_keymap("n", "<C-B>", ":TermExec cmd=build.bat<CR>", {noremap=tr
 vim.api.nvim_set_keymap("i", "<C-B>", ":TermExec cmd=build.bat<CR>", {noremap=true, silent=true})
 vim.api.nvim_set_keymap('n', '<C-D>', ':t.<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'q', 'b', { noremap = true })
+vim.api.nvim_set_keymap('v', '<C-D>', "y'>p", {noremap = true, silent = true})
 
 -- Mapping leader key + 1/2/3/4 to switch to tab 1/2/3/4 directly
 vim.api.nvim_set_keymap('n', '<leader>1', ':tabn 1<CR>', { noremap = true, silent = true })
@@ -849,6 +803,8 @@ vim.api.nvim_set_keymap('v', '<C-d>', '"_d', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'dd', '"_dd', {noremap = true, silent = true})
 
 -- Overwrite comment color
-vim.api.nvim_set_hl(0, 'Comment', { fg = '#8a8686', italic=true})
 
+vim.api.nvim_set_keymap('n', '<Leader><Tab>', ':tabnext<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader><S-Tab>', ':tabprevious<CR>', { noremap = true, silent = true })
+vim.opt.scrolloff = 999
 -- vim.opt.scrolloff = 999
