@@ -185,7 +185,25 @@ require('lazy').setup({
     },
   },
 
-
+  -- {
+  --   "nvim-treesitter/nvim-treesitter-context",
+  --   config = function()
+  --     require'treesitter-context'.setup{
+  --       enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
+  --       max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
+  --       min_window_height = 0, -- Minimum editor window height to enable context. Values <= 0 mean no limit.
+  --       line_numbers = true,
+  --       multiline_threshold = 20, -- Maximum number of lines to show for a single context
+  --       trim_scope = 'outer', -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
+  --       mode = 'topline',  -- Line used to calculate context. Choices: 'cursor', 'topline'
+  --       -- Separator between context and content. Should be a single character string, like '-'.
+  --       -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
+  --       separator = nil,
+  --       zindex = 20, -- The Z-index of the context window
+  --       on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
+  --     }
+  --   end
+  -- },
 
   {
     "catppuccin/nvim", 
@@ -193,39 +211,9 @@ require('lazy').setup({
     priority = 1000,
     config = function()
       require("catppuccin").setup({
-      
-        integrations = {
-          neotree = true,
-          native_lsp = {
-            enabled = true,
-            virtual_text = {
-                errors = { "italic" },
-                hints = { "italic" },
-                warnings = { "italic" },
-                information = { "italic" },
-            },
-            underlines = {
-                errors = { "underline" },
-                hints = { "underline" },
-                warnings = { "underline" },
-                information = { "underline" },
-            },
-            inlay_hints = {
-                background = true,
-            },
-        },
-        }
       })
       vim.cmd('colorscheme catppuccin-mocha')
       end
-  },
-  {
-    -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help ibl`
-    main = 'ibl',
-    opts = {},
   },
 
   -- "gc" to comment visual regions/lines
@@ -250,6 +238,22 @@ require('lazy').setup({
         end,
       },
     },
+    config = function()
+      require("telescope").setup({
+        defaults = {
+          sorting_strategy = "ascending"
+        }
+      })
+    end
+  },
+
+  {
+    -- Add indentation guides even on blank lines
+    'lukas-reineke/indent-blankline.nvim',
+    -- Enable `lukas-reineke/indent-blankline.nvim`
+    -- See `:help ibl`
+    main = 'ibl',
+    opts = {},
   },
 
   {
@@ -437,7 +441,7 @@ vim.keymap.set('n', '<leader>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
     winblend = 10,
-    previewer = false,
+    previewer = true
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
 
@@ -806,5 +810,5 @@ vim.api.nvim_set_keymap('n', 'dd', '"_dd', {noremap = true, silent = true})
 
 vim.api.nvim_set_keymap('n', '<Leader><Tab>', ':tabnext<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader><S-Tab>', ':tabprevious<CR>', { noremap = true, silent = true })
-vim.opt.scrolloff = 999
+-- vim.opt.scrolloff = 999
 -- vim.opt.scrolloff = 999
