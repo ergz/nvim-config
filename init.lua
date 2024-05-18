@@ -215,7 +215,7 @@ require('lazy').setup({
       vim.cmd('colorscheme catppuccin-mocha')
       end
   },
-
+  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false , highlight={after=""}} },
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
@@ -240,8 +240,8 @@ require('lazy').setup({
     },
     config = function()
       require("telescope").setup({
-        defaults = {
-          sorting_strategy = "ascending"
+        defaults = require("telescope.themes").get_ivy {
+          previewer = true
         }
       })
     end
@@ -437,6 +437,8 @@ vim.api.nvim_create_user_command('TelescopeBuffersByLastUsed', telescope_buffers
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<C-p>', ':TelescopeBuffersByLastUsed<cr>', { desc = 'Find existing buffers' })
+
+-- TODO: remove the get_iv
 vim.keymap.set('n', '<leader>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_ivy {
