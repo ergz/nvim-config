@@ -7,7 +7,7 @@ return {
       -- custom_powerline_dark.inactive.c.fg = '#9c9c9c'
       require('lualine').setup({
         options = {
-          icons_enabled = false,
+          icons_enabled = true,
           theme = "catppuccin-mocha",
           component_separators = '|',
           section_separators = '',
