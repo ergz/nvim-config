@@ -465,6 +465,8 @@ vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc
 vim.keymap.set('n', '<A-p>', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
+-- FIXME: make sure that is the correct one to use
+vim.keymap.set('n', '<leader>tt', ':TodoTelescope<CR>', { noremap = true, silent = true })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
