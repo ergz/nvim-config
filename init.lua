@@ -185,7 +185,25 @@ require('lazy').setup({
     },
   },
 
-
+  -- {
+  --   "nvim-treesitter/nvim-treesitter-context",
+  --   config = function()
+  --     require'treesitter-context'.setup{
+  --       enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
+  --       max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
+  --       min_window_height = 0, -- Minimum editor window height to enable context. Values <= 0 mean no limit.
+  --       line_numbers = true,
+  --       multiline_threshold = 20, -- Maximum number of lines to show for a single context
+  --       trim_scope = 'outer', -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
+  --       mode = 'topline',  -- Line used to calculate context. Choices: 'cursor', 'topline'
+  --       -- Separator between context and content. Should be a single character string, like '-'.
+  --       -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
+  --       separator = nil,
+  --       zindex = 20, -- The Z-index of the context window
+  --       on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
+  --     }
+  --   end
+  -- },
 
   {
     "catppuccin/nvim",
@@ -196,38 +214,12 @@ require('lazy').setup({
         no_italic = true,
         integrations = {
           neotree = true,
-        --   native_lsp = {
-        --     enabled = true,
-        --     virtual_text = {
-        --         errors = { "italic" },
-        --         hints = { "italic" },
-        --         warnings = { "italic" },
-        --         information = { "italic" },
-        --     },
-        --     underlines = {
-        --         errors = { "underline" },
-        --         hints = { "underline" },
-        --         warnings = { "underline" },
-        --         information = { "underline" },
-        --     },
-        --     inlay_hints = {
-        --         background = true,
-        --     },
-        -- },
         }
       })
       vim.cmd('colorscheme catppuccin-mocha')
       end
   },
-  {
-    -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help ibl`
-    main = 'ibl',
-    opts = {},
-  },
-
+  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false , highlight={after=""}} },
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
@@ -250,6 +242,22 @@ require('lazy').setup({
         end,
       },
     },
+    config = function()
+      require("telescope").setup({
+        defaults = require("telescope.themes").get_ivy {
+          previewer = true
+        }
+      })
+    end
+  },
+
+  {
+    -- Add indentation guides even on blank lines
+    'lukas-reineke/indent-blankline.nvim',
+    -- Enable `lukas-reineke/indent-blankline.nvim`
+    -- See `:help ibl`
+    main = 'ibl',
+    opts = {},
   },
 
   {
@@ -433,21 +441,25 @@ vim.api.nvim_create_user_command('TelescopeBuffersByLastUsed', telescope_buffers
 vim.keymap.set('n', '<leader>o', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<C-p>', ':TelescopeBuffersByLastUsed<cr>', { desc = 'Find existing buffers' })
+
+-- TODO: remove the get_iv
 vim.keymap.set('n', '<leader>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
-  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_ivy {
     winblend = 10,
-    previewer = false,
+    previewer = true
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
 
 local function telescope_live_grep_open_files()
-  require('telescope.builtin').live_grep {
+  require('telescope.builtin').live_grep(require('telescope.themes').get_ivy {
     grep_open_files = true,
     prompt_title = 'Live Grep in Open Files',
-  }
+    winblend = 10,
+    previewer = true,
+  })
 end
-vim.keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })
+vim.keymap.set('n', '<leader>ff', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })
 vim.keymap.set('n', '<leader>ss', require('telescope.builtin').builtin, { desc = '[S]earch [S]elect Telescope' })
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
 vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
@@ -457,6 +469,8 @@ vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc
 vim.keymap.set('n', '<A-p>', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
+-- FIXME: make sure that is the correct one to use
+vim.keymap.set('n', '<leader>tt', ':TodoTelescope<CR>', { noremap = true, silent = true })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
@@ -805,7 +819,6 @@ vim.api.nvim_set_keymap('n', 'dd', '"_dd', {noremap = true, silent = true})
 
 vim.api.nvim_set_keymap('n', '<Leader><Tab>', ':tabnext<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader><S-Tab>', ':tabprevious<CR>', { noremap = true, silent = true })
--- vim.opt.scrolloff = 999
 -- vim.opt.scrolloff = 999
 vim.api.nvim_set_keymap('n', '<C-\\>', '<C-^>', { noremap = true })
 
