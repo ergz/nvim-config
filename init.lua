@@ -188,12 +188,12 @@ require('lazy').setup({
 
 
   {
-    "catppuccin/nvim", 
-    name = "catppuccin", 
+    "catppuccin/nvim",
+    name = "catppuccin",
     priority = 1000,
     config = function()
       require("catppuccin").setup({
-      
+        no_italic = true,
         integrations = {
           neotree = true,
         --   native_lsp = {
@@ -430,7 +430,7 @@ end
 vim.api.nvim_create_user_command('LiveGrepGitRoot', live_grep_git_root, {})
 vim.api.nvim_create_user_command('TelescopeBuffersByLastUsed', telescope_buffers_sorted_by_last_used, {})
 -- See `:help telescope.builtin`
-vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
+vim.keymap.set('n', '<leader>o', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<C-p>', ':TelescopeBuffersByLastUsed<cr>', { desc = 'Find existing buffers' })
 vim.keymap.set('n', '<leader>/', function()
@@ -802,9 +802,13 @@ vim.api.nvim_set_keymap('n', '<leader>4', ':tabn 4<CR>', { noremap = true, silen
 vim.api.nvim_set_keymap('v', '<C-d>', '"_d', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'dd', '"_dd', {noremap = true, silent = true})
 
--- Overwrite comment color
 
 vim.api.nvim_set_keymap('n', '<Leader><Tab>', ':tabnext<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader><S-Tab>', ':tabprevious<CR>', { noremap = true, silent = true })
-vim.opt.scrolloff = 999
 -- vim.opt.scrolloff = 999
+-- vim.opt.scrolloff = 999
+vim.api.nvim_set_keymap('n', '<C-\\>', '<C-^>', { noremap = true })
+
+vim.cmd [[
+  highlight WinSeparator guifg=grey
+]]
