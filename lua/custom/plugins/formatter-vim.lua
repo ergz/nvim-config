@@ -13,7 +13,7 @@ return {
     -- Formatter configurations for filetype "lua" go here
     -- and will be executed in order
     python = {
-          require("formatter.filetypes.python").black
+          require("formatter.filetypes.python").ruff
           -- function()
           --   return {
           --     exe = "ruff",
