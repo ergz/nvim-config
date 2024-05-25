@@ -818,3 +818,10 @@ vim.api.nvim_set_keymap('n', '<Leader><Tab>', ':tabnext<CR>', { noremap = true, 
 vim.api.nvim_set_keymap('n', '<Leader><S-Tab>', ':tabprevious<CR>', { noremap = true, silent = true })
 -- vim.opt.scrolloff = 999
 -- vim.opt.scrolloff = 999
+--
+--
+-- -- Map <leader>ts to :TermSelect
+vim.api.nvim_set_keymap('n', '<leader>t1', ':1ToggleTerm<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>t2', ':2ToggleTerm<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>t3', ':3ToggleTerm<CR>', { noremap = true, silent = true })
+
