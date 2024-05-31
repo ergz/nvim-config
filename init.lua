@@ -764,7 +764,7 @@ vim.api.nvim_set_keymap('v', '{', '}', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-S>', ':w<CR>', { noremap = true, silent = true })
 
 -- Insert mode: Ctrl+S to save and return to insert mode
-vim.api.nvim_set_keymap('i', '<C-s>', '<C-O>:w<CR><C-O>:startinsert<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-s>', '<Esc>:w<CR>', { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '<A-\\>', ':Neotree toggle<CR>', { noremap = true, silent = true })
 
