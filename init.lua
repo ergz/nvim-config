@@ -219,6 +219,17 @@ require('lazy').setup({
       vim.cmd('colorscheme catppuccin-mocha')
       end
   },
+
+  --  {
+  --     'madyanov/gruber.vim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     -- require('gruber').setup()
+  --     vim.cmd('colorscheme gruber')
+  --   end
+  -- },
+
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false , highlight={after=""}} },
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
@@ -379,12 +390,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
+local actions = require('telescope.actions')
 require('telescope').setup {
   defaults = {
     mappings = {
       i = {
         ['<C-u>'] = false,
         ['<C-d>'] = false,
+        ["<CR>"] = actions.select_default + actions.center,
       },
     },
   },
