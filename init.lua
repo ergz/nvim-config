@@ -290,6 +290,7 @@ require('lazy').setup({
 -- Set highlight on search
 vim.o.hlsearch = false
 vim.o.cursorline = true
+vim.o.cursorcolumn = true
 vim.api.nvim_set_hl(0, 'CursorLine', { bg = 'black', fg = nil })
 vim.api.nvim_set_keymap('n', '<A-e>', ':Neotree source=filesystem focus<CR>', { noremap = true, silent = true })
 
@@ -802,6 +803,8 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
+vim.opt.showcmd = false
+
 vim.api.nvim_set_keymap("n", "<C-B>", ":TermExec cmd=build.bat<CR>", {noremap=true, silent=false})
 vim.api.nvim_set_keymap("i", "<C-B>", ":TermExec cmd=build.bat<CR>", {noremap=true, silent=true})
 vim.api.nvim_set_keymap('n', '<C-D>', ':t.<CR>', {noremap = true, silent = true})

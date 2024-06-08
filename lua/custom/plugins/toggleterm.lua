@@ -2,7 +2,8 @@
     version = "*", 
     opts = {
       shell = "cmd.exe",
-      open_mapping = "<C-\\>", direction="float", 
+      exit_on_action = true,
+      open_mapping = "<C-\\>", direction="float",
       float_opts = {
         border = 'curved'
       }
