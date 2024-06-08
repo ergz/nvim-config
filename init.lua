@@ -303,6 +303,7 @@ vim.o.hlsearch = false
 vim.o.cursorline = true
 vim.o.cursorcolumn = true
 vim.api.nvim_set_hl(0, 'CursorLine', { bg = 'black', fg = nil })
+vim.api.nvim_set_hl(0, 'CursorColumn', { bg = '#171717', fg = nil })
 vim.api.nvim_set_keymap('n', '<A-e>', ':Neotree source=filesystem focus<CR>', { noremap = true, silent = true })
 
 -- Make line numbers default
