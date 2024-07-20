@@ -1,10 +1,11 @@
   return {'akinsho/toggleterm.nvim', 
     version = "*", 
     opts = {
-      shell = "cmd.exe",
+      shell = "/bin/bash",
       exit_on_action = true,
       open_mapping = "<C-\\>", direction="float",
       float_opts = {
-        border = 'curved'
-      }
-    }}
+        border = 'single'
+      },
+    }
+  }

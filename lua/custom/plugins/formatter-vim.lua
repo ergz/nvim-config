@@ -12,6 +12,9 @@ return {
   filetype = {
     -- Formatter configurations for filetype "lua" go here
     -- and will be executed in order
+    svelte = {
+          require("formatter.filetypes.svelte").prettier
+        },
     python = {
           require("formatter.filetypes.python").ruff
           -- function()
