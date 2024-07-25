@@ -859,6 +859,12 @@ vim.api.nvim_set_keymap('n', '<leader>t1', ':1ToggleTerm<CR>', { noremap = true,
 vim.api.nvim_set_keymap('n', '<leader>t2', ':2ToggleTerm<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>t3', ':3ToggleTerm<CR>', { noremap = true, silent = true })
 
+local trim_spaces = true
+vim.keymap.set("v", "<C-S-s>", function()
+    require("toggleterm").send_lines_to_terminal("visual_lines", trim_spaces, { args = vim.v.count })
+end)
+
+
 
 vim.cmd [[
   highlight WinSeparator guifg=grey
