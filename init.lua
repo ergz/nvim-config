@@ -222,21 +222,34 @@ require('lazy').setup({
   --   end
   -- },
 
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
-    config = function()
-      require("catppuccin").setup({
-        no_italic = true,
-        integrations = {
-          neotree = true,
-        }
-      })
-      vim.cmd('colorscheme catppuccin-mocha')
-      end
-  },
+  -- {
+  --   "catppuccin/nvim",
+  --   name = "catppuccin",
+  --   priority = 1000,
+  --   config = function()
+  --     require("catppuccin").setup({
+  --       no_italic = true,
+  --       integrations = {
+  --         neotree = true,
+  --       }
+  --     })
+  --     vim.cmd('colorscheme catppuccin-mocha')
+  --     end
+  -- },
 
+  {
+  "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+        styles = {
+          functions = {italic = false},
+          variables = {italic = false},
+          keywords = {italic = false},
+        }
+      },
+  },
+  --
   --  {
   --     'madyanov/gruber.vim',
   --   lazy = false,
@@ -316,6 +329,9 @@ require('lazy').setup({
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
 -- Set highlight on search
+--
+vim.cmd('colorscheme tokyonight-night')
+
 vim.o.hlsearch = false
 vim.o.cursorline = true
 vim.o.cursorcolumn = false
@@ -783,8 +799,6 @@ cmp.setup {
 --
 -- Replace 'YourFont' with your desired font name and '11' with the size.
 
-vim.opt.guifont = "BerkeleyMono Nerd Font:h14"
-
 vim.api.nvim_set_keymap('n', '<C-Up>', '{', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-Down>', '}', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '}', '{', {noremap = true})
@@ -817,7 +831,7 @@ vim.cmd [[set guicursor=i-ci:ver100-iCursor]]
 
 --
 -- vim.cmd [[
--- highlight Cursor guibg=#ff0000 guifg=white ctermbg=196
+-- highlight Cursor guibg=#ff0000 guifg=white ctermbg=1960000
 --   highlight iCursor guibg=#ffffaf ctermbg=229
 --   highlight rCursor guibg=#d70000 ctermbg=124
 -- ]]
@@ -838,8 +852,8 @@ vim.opt.showcmd = false
 
 vim.api.nvim_set_keymap("n", "<C-B>", ":TermExec cmd=build.bat<CR>", {noremap=true, silent=false})
 vim.api.nvim_set_keymap("i", "<C-B>", ":TermExec cmd=build.bat<CR>", {noremap=true, silent=true})
-vim.api.nvim_set_keymap('n', '<C-D>', ':t.<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'q', 'b', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-D>', ':t.<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('v', '<C-D>', "y'>p", {noremap = true, silent = true})
 
 -- Mapping leader key + 1/2/3/4 to switch to tab 1/2/3/4 directly
@@ -859,10 +873,17 @@ vim.api.nvim_set_keymap('n', '<leader>t1', ':1ToggleTerm<CR>', { noremap = true,
 vim.api.nvim_set_keymap('n', '<leader>t2', ':2ToggleTerm<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>t3', ':3ToggleTerm<CR>', { noremap = true, silent = true })
 
+
+-- lsp diagnostic
+vim.api.nvim_set_keymap('n', '<leader>ld', ':Telescope diagnostics<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>ll', ':lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true })
+
+
 local trim_spaces = true
 vim.keymap.set("v", "<C-S-s>", function()
     require("toggleterm").send_lines_to_terminal("visual_lines", trim_spaces, { args = vim.v.count })
 end)
+
 
 
 
