@@ -844,11 +844,35 @@ vim.cmd [[set guicursor=i-ci:ver100-iCursor]]
 --   \,sm:block-iCursor
 -- ]]
 
+-- General settings
+vim.opt.showcmd = false
+
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 vim.opt.showcmd = false
+-- Language-specific settings
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "javascript,typescript,svelte",
+  callback = function()
+    vim.opt_local.tabstop = 2
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.softtabstop = 2
+    vim.opt_local.expandtab = true
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "python",
+  callback = function()
+    vim.opt_local.tabstop = 4
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.softtabstop = 4
+    vim.opt_local.expandtab = true
+  end,
+})
+
 
 vim.api.nvim_set_keymap("n", "<C-B>", ":TermExec cmd=build.bat<CR>", {noremap=true, silent=false})
 vim.api.nvim_set_keymap("i", "<C-B>", ":TermExec cmd=build.bat<CR>", {noremap=true, silent=true})
@@ -887,7 +911,6 @@ end)
 
 
 
-vim.cmd [[
-  highlight WinSeparator guifg=grey
-]]
-
+-- vim.cmd [[
+--   highlight WinSeparator guifg=grey
+-- ]]

@@ -15,6 +15,12 @@ return {
     svelte = {
           require("formatter.filetypes.svelte").prettier
         },
+    typescript = {
+          require("formatter.filetypes.typescript").prettier
+        },
+    javascript = {
+        require("formatter.filetypes.javascript").prettier
+        },
     python = {
           require("formatter.filetypes.python").ruff
           -- function()

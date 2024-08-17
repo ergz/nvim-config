@@ -16,6 +16,7 @@ return {
         filtered_items = {visible=true},
       },
       close_if_last_window = true,
+      popup_border_style = "single",
       event_handlers = {
 
           {
