@@ -43,4 +43,10 @@ return {
   --   main = "ibl",
   --   opts = {},
   -- },
+  {
+    "rcarriga/nvim-notify",
+    opts = {
+      timeout = 2000,
+    },
+  },
 }
