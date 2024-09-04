@@ -18,3 +18,8 @@ vim.keymap.set("n", "<A-[>", ":bprevious<CR>", { noremap = true, silent = true }
 
 -- Map Alt-] to next buffer
 vim.keymap.set("n", "<A-]>", ":bnext<CR>", { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap("v", "<Tab>", ">gv", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<S-Tab>", "<gv", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Tab>", ">>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<S-Tab>", "<<", { noremap = true, silent = true })

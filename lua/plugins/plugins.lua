@@ -49,4 +49,15 @@ return {
       timeout = 2000,
     },
   },
+  {
+    "echasnovski/mini.indentscope",
+    opts = {
+      options = {
+        try_as_border = true,
+      },
+      draw = {
+        animation = require("mini.indentscope").gen_animation.exponential(),
+      },
+    },
+  },
 }
