@@ -27,15 +27,6 @@ return {
       },
     },
   },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    opts = {
-      close_if_last_window = true,
-    },
-    keys = {
-      { "<A-\\>", "<cmd>Neotree toggle<cr>", desc = "Toggle Neo-tree" },
-    },
-  },
   -- { -- Add indentation guides even on blank lines
   --   "lukas-reineke/indent-blankline.nvim",
   --   -- Enable `lukas-reineke/indent-blankline.nvim`
@@ -47,17 +38,6 @@ return {
     "rcarriga/nvim-notify",
     opts = {
       timeout = 2000,
-    },
-  },
-  {
-    "echasnovski/mini.indentscope",
-    opts = {
-      options = {
-        try_as_border = true,
-      },
-      draw = {
-        animation = require("mini.indentscope").gen_animation.linear({ duration = 5 }),
-      },
     },
   },
 }
