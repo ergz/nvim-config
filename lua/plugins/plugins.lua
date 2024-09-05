@@ -10,6 +10,7 @@ return {
         pyright = {},
         tsserver = {},
         svelte = {},
+        ruff_lsp = false,
       },
     },
   },
