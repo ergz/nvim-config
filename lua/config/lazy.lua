@@ -18,11 +18,7 @@ require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-    -- { import = "lazyvim.plugins.extras.lang.python" },
-    { import = "lazyvim.plugins.extras.formatting.prettier" },
-    -- { import = "lazyvim.plugins.extras.ui.indent-blankline" },
     { import = "lazyvim.plugins.extras.ui.mini-indentscope" },
-    -- import/override with your plugins
     { import = "plugins" },
   },
   defaults = {
