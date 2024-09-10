@@ -4,6 +4,7 @@ return {
     opts = {
       options = {
         try_as_border = true,
+        border = "both",
       },
       draw = {
         animation = require("mini.indentscope").gen_animation.linear({ duration = 1 }),
