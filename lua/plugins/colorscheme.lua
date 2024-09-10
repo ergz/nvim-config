@@ -4,9 +4,18 @@ return {
     opts = {
       style = "night",
       on_highlights = function(hl, cl)
-        hl.GitSignsAdd = { fg = "#A6E22E" } -- Customize the GitSignsAdd color
-        hl.GitSignsChange = { fg = "#E6DB74" } -- Customize the GitSignsChange color
-        hl.GitSignsDelete = { fg = "#F92672" } -- Customize the GitSignsDelete color
+        -- background is like Tomorrow night -------------------
+        local background = "#1d1f21"
+        hl.NeoTreeNormal = { bg = background }
+        hl.NeoTreeNormalNC = { bg = background }
+        hl.Normal = { bg = background }
+        hl.NormalFloat = { bg = background }
+        hl.NormalNC = { bg = background }
+
+        -- git gutter signs
+        hl.GitSignsAdd = { fg = "#A6E22E" }
+        hl.GitSignsChange = { fg = "#E6DB74" }
+        hl.GitSignsDelete = { fg = "#F92672" }
         -- hl.CursorLine = { bg = "#000000" }
       end,
     },
