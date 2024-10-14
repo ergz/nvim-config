@@ -12,8 +12,8 @@ vim.keymap.del("t", "<C-l>")
 -- Editor keymaps ---------------------------
 
 -- Move by blocks
-map({ "n", "x" }, "}", "{", { desc = "Move to next block", silent = true })
-map({ "n", "x" }, "{", "}", { desc = "Move to previous block", silent = true })
+-- map({ "n", "x" }, "}", "{", { desc = "Move to next block", silent = true })
+-- map({ "n", "x" }, "{", "}", { desc = "Move to previous block", silent = true })
 
 --- telescope
 map({ "n" }, "<C-j>", require("telescope.builtin").lsp_document_symbols, { desc = "document symbols" })
