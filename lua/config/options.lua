@@ -7,3 +7,4 @@
 local opt = vim.opt
 
 opt.relativenumber = false
+vim.opt.conceallevel = 0
