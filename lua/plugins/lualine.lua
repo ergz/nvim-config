@@ -4,6 +4,9 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     opts = {
+      options = {
+        theme = "codedark",
+      },
       sections = {
         lualine_a = { "mode" },
         lualine_b = { "branch" },

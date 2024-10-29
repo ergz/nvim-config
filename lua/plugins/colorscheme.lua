@@ -26,6 +26,19 @@ return {
     "vague2k/vague.nvim",
     config = function()
       require("vague").setup({
+        style = {
+          boolean = "none",
+          number = "none",
+          float = "none",
+          error = "none",
+          comments = "none",
+          conditionals = "none",
+          functions = "none",
+          headings = "none",
+          operators = "none",
+          strings = "none",
+          variables = "none",
+        },
         -- optional configuration here
       })
     end,
