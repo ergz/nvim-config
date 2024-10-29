@@ -20,10 +20,20 @@ return {
       end,
     },
   },
+
+  -- Lazy
+  {
+    "vague2k/vague.nvim",
+    config = function()
+      require("vague").setup({
+        -- optional configuration here
+      })
+    end,
+  },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight",
+      colorscheme = "vague",
     },
   },
 }
