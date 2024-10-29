@@ -47,6 +47,8 @@ vim.keymap.set("n", "<leader>e", "<cmd>Neotree focus<cr>", { desc = "Focus Neo-t
 
 -- Prevent dd from copying to clipboard
 vim.keymap.set("n", "dd", '"_dd', { noremap = true, desc = "Delete line without copying" })
--- Cut operation keymapping
-vim.keymap.set("n", "dx", "dd", { noremap = true, desc = "Cut line" })
-vim.keymap.set("x", "dx", "d", { noremap = true, desc = "Cut selection" })
+vim.keymap.set("x", "d", '"_d', { noremap = true, desc = "Delete selection without copying" })
+--
+-- -- Cut operation keymapping
+-- vim.keymap.set("n", "dx", "dd", { noremap = true, desc = "Cut line" })
+-- vim.keymap.set("x", "dx", "d", { noremap = true, desc = "Cut selection" })
