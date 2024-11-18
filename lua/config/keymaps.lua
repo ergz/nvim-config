@@ -7,7 +7,7 @@ local map = LazyVim.safe_keymap_set
 --- Delete keymaps --------------------------
 vim.keymap.del("n", "[B")
 vim.keymap.del("n", "]B")
-vim.keymap.del("t", "<C-l>")
+-- vim.keymap.del("t", "<C-l>")
 
 -- Editor keymaps ---------------------------
 
