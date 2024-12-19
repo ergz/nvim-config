@@ -16,7 +16,7 @@ vim.keymap.del("n", "]B")
 -- map({ "n", "x" }, "{", "}", { desc = "Move to previous block", silent = true })
 
 --- telescope
-map({ "n" }, "<C-j>", require("telescope.builtin").lsp_document_symbols, { desc = "document symbols" })
+-- map({ "n" }, "<C-j>", require("telescope.builtin").lsp_document_symbols, { desc = "document symbols" })
 
 -- buffer tab navigation
 vim.keymap.set("n", "<A-[>", ":bprevious<CR>", { noremap = true, silent = true })

@@ -9,3 +9,4 @@ local opt = vim.opt
 opt.relativenumber = false
 vim.opt.conceallevel = 0
 opt.clipboard = "unnamedplus"
+vim.g.snacks_animate = true
