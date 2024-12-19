@@ -27,6 +27,7 @@ return {
           -- { LazyVim.lualine.pretty_path() },
           { "filename", path = 1 },
         },
+        lualine_z = {},
       },
     },
   },

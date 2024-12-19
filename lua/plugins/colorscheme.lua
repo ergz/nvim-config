@@ -43,10 +43,11 @@ return {
       })
     end,
   },
+  { "RRethy/base16-nvim" },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "default",
+      colorscheme = "base16-chalk",
     },
   },
 }
