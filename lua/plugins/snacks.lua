@@ -12,9 +12,11 @@ return {
         style = "down",
         easing = "linear",
         duration = {
-          total = 250,
+          total = 200,
         },
       },
     },
+
+    terminal = { enabled = true },
   },
 }
