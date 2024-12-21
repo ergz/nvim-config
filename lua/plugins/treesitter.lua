@@ -6,6 +6,10 @@ return {
       "svelte",
       "terraform",
       "hcl",
+      "go",
+      -- "gomod",
+      -- "gowork",
+      -- "gosum",
     },
   },
 }
