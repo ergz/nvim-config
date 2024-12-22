@@ -59,3 +59,6 @@ end, { desc = "Toggle Terminal" })
 
 -- fzf
 vim.keymap.set({ "n" }, "<C-j>", ":FzfLua lsp_document_symbols<cr>", { noremap = true, desc = "show documnet symbols" })
+
+-- disable
+vim.keymap.set("v", "u", "<Nop>", { silent = true })
