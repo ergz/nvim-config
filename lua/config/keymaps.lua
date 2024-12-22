@@ -56,3 +56,6 @@ vim.keymap.set("x", "d", '"_d', { noremap = true, desc = "Delete selection witho
 vim.keymap.set({ "n", "t" }, "<c-\\>", function()
   Snacks.terminal.toggle()
 end, { desc = "Toggle Terminal" })
+
+-- fzf
+vim.keymap.set({ "n" }, "<C-j>", ":FzfLua lsp_document_symbols<cr>", { noremap = true, desc = "show documnet symbols" })

@@ -6,7 +6,7 @@ return {
     opts = {
       options = {
         -- theme = "codedark",
-        theme = "base16",
+        theme = "palenight",
         section_separators = "",
         component_separators = "",
       },

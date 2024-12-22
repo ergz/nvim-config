@@ -44,10 +44,13 @@ return {
     end,
   },
   { "RRethy/base16-nvim" },
+  { "projekt0n/github-nvim-theme", name = "github-theme" },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "base16-chalk",
+      -- colorscheme = "base16-da-one-gray",
+      -- colorscheme = "base16-cirus",
+      colorscheme = "tokyonight-night",
     },
   },
 }
