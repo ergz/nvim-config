@@ -2,6 +2,17 @@ return {
   {
     "folke/tokyonight.nvim",
     opts = {
+      styles = {
+        -- Style to be applied to different syntax groups
+        -- Value is any valid attr-list value for `:help nvim_set_hl`
+        comments = { italic = false },
+        keywords = { italic = false },
+        functions = {},
+        variables = {},
+        -- Background styles. Can be "dark", "transparent" or "normal"
+        sidebars = "dark", -- style for sidebars, see below
+        floats = "dark", -- style for floating windows
+      },
       style = "night",
       on_highlights = function(hl, cl)
         -- background is like Tomorrow night -------------------
@@ -13,10 +24,10 @@ return {
         -- hl.NormalNC = { bg = background }
 
         -- git gutter signs
-        hl.GitSignsAdd = { fg = "#A6E22E" }
-        hl.GitSignsChange = { fg = "#E6DB74" }
-        hl.GitSignsDelete = { fg = "#F92672" }
-        -- hl.CursorLine = { bg = "#000000" }
+        hl.GitSignsAdd = { fg = "#8BC34A" } -- A softer green
+        hl.GitSignsChange = { fg = "#D4CB68" } -- A more muted yellow
+        hl.GitSignsDelete = { fg = "#E57373" } -- A softer red
+        -- hl.CursorLine = { bg = "#1A1A1A" } -- A slightly lighter black for better visibility
       end,
     },
   },
