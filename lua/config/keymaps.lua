@@ -62,3 +62,5 @@ vim.keymap.set({ "n" }, "<C-j>", ":FzfLua lsp_document_symbols<cr>", { noremap =
 
 -- disable
 vim.keymap.set("v", "u", "<Nop>", { silent = true })
+
+vim.keymap.set("n", "<leader>dd", ":bd<CR>", { noremap = true, silent = true })
