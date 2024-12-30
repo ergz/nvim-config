@@ -22,6 +22,7 @@ return {
         -- hl.Normal = { bg = background }
         -- hl.NormalFloat = { bg = background }
         -- hl.NormalNC = { bg = background }
+        hl.WinSeparator = { fg = "#4444ff" }
 
         -- git gutter signs
         hl.GitSignsAdd = { fg = "#8BC34A" } -- A softer green
