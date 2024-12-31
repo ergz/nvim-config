@@ -17,6 +17,8 @@ return {
       on_highlights = function(hl, cl)
         -- background is like Tomorrow night -------------------
         -- local background = "#1d1f21"
+        local foreground = "#d1daff"
+        hl.Normal = { fg = foreground }
         -- hl.NeoTreeNormal = { bg = background }
         -- hl.NeoTreeNormalNC = { bg = background }
         -- hl.Normal = { bg = background }
