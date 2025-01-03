@@ -7,7 +7,7 @@ return {
       diagnostics = false,
       -- tab_size = 15,
       style_preset = {
-        require("bufferline").style_preset.default,
+        -- require("bufferline").style_preset.default,
       },
       show_buffer_close_icons = false,
       buffer_close_icon = "󰅖",

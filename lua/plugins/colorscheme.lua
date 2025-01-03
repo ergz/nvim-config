@@ -37,6 +37,27 @@ return {
           bg = colors.bg,
         }
         hl["@string.documentation.python"] = { link = "Comment" }
+
+        -- Cyberpunk Snacks notifications theme
+        local cyber_colors = {
+          neon_blue = "#00FFFF",
+          neon_yellow = "#FFD300",
+          neon_purple = "#BD00FF",
+          neon_pink = "#FF007F",
+          neon_green = "#39FF14",
+          cyber_gray = "#1C1C1C",
+        }
+
+        -- Info notifications (Neon Blue)
+        hl.SnacksNotifierBorderInfo = { fg = cyber_colors.neon_green }
+        -- Warning notifications (Neon Yellow)
+        hl.SnacksNotifierBorderWarn = { fg = cyber_colors.neon_yellow }
+        -- Debug notifications (Neon Purple)
+        hl.SnacksNotifierBorderDebug = { fg = cyber_colors.neon_purple }
+        -- Error notifications (Neon Pink)
+        hl.SnacksNotifierBorderError = { fg = cyber_colors.neon_pink }
+        -- Trace notifications (Neon Green)
+        hl.SnacksNotifierBorderTrace = { fg = cyber_colors.neon_green }
       end,
     },
   },

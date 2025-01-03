@@ -4,6 +4,10 @@ return {
     words = { enabled = false },
     scroll = { enabled = false },
     dim = { enabled = false },
+    notifier = {
+      enabled = true,
+      style = "fancy",
+    },
     indent = {
       enabled = true,
       indent = {
@@ -17,7 +21,11 @@ return {
         },
       },
     },
-
+    styles = {
+      notification = {
+        border = "rounded",
+      },
+    },
     terminal = { enabled = true },
   },
 }
