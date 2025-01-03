@@ -40,7 +40,6 @@ return {
       end,
     },
   },
-  -- Lazy
   {
     "vague2k/vague.nvim",
     config = function()
@@ -67,8 +66,6 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      -- colorscheme = "base16-da-one-gray",
-      -- colorscheme = "base16-cirus",
       colorscheme = "tokyonight-moon",
     },
   },

@@ -6,7 +6,7 @@ return {
     dim = { enabled = false },
     notifier = {
       enabled = true,
-      style = "fancy",
+      style = "compact",
     },
     indent = {
       enabled = true,
