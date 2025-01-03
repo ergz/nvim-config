@@ -1,3 +1,4 @@
+local colors = require("tokyonight.colors").setup()
 return {
   {
     "folke/tokyonight.nvim",
@@ -33,6 +34,13 @@ return {
         -- hl.CursorLine = { bg = "#1A1A1A" } -- A slightly lighter black for better visibility
         --
         -- hl.BufferLineIndicatorSelected = { fg = "#4444ff" }
+        hl.BufferLineBufferSelected = {
+          fg = "#FFFFFF",
+        }
+        hl.BufferLineIndicatorSelected = {
+          fg = colors.green,
+          bg = colors.bg,
+        }
       end,
     },
   },
