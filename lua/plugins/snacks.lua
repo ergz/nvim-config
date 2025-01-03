@@ -21,11 +21,6 @@ return {
         },
       },
     },
-    styles = {
-      notification = {
-        border = "rounded",
-      },
-    },
     terminal = { enabled = true },
   },
 }
