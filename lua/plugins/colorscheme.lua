@@ -32,15 +32,11 @@ return {
         hl.GitSignsChange = { fg = "#D4CB68" } -- A more muted yellow
         hl.GitSignsDelete = { fg = "#E57373" } -- A softer red
         -- hl.CursorLine = { bg = "#1A1A1A" } -- A slightly lighter black for better visibility
-        --
-        -- hl.BufferLineIndicatorSelected = { fg = "#4444ff" }
-        hl.BufferLineBufferSelected = {
-          fg = "#FFFFFF",
-        }
         hl.BufferLineIndicatorSelected = {
           fg = colors.green,
           bg = colors.bg,
         }
+        hl["@string.documentation.python"] = { link = "Comment" }
       end,
     },
   },

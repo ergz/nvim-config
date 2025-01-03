@@ -60,6 +60,7 @@ end, { desc = "Toggle Terminal" })
 -- fzf
 vim.keymap.set({ "n" }, "<C-j>", ":FzfLua lsp_document_symbols<cr>", { noremap = true, desc = "show documnet symbols" })
 vim.keymap.set("n", "<leader>p", "<cmd>FzfLua buffers<cr>", { desc = "Find buffers" })
+vim.keymap.set("n", "<C-p>", "<cmd>FzfLua buffers<cr>", { desc = "Find buffers" })
 
 -- disable
 vim.keymap.set("v", "u", "<Nop>", { silent = true })
