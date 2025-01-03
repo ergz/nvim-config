@@ -13,12 +13,12 @@ return {
         sidebars = "dark", -- style for sidebars, see below
         floats = "dark", -- style for floating windows
       },
-      style = "night",
+      -- style = "night",
       on_highlights = function(hl, cl)
         -- background is like Tomorrow night -------------------
         -- local background = "#1d1f21"
-        local foreground = "#d1daff"
-        hl.Normal = { fg = foreground }
+        -- local foreground = "#d1daff"
+        -- hl.Normal = { fg = foreground }
         -- hl.NeoTreeNormal = { bg = background }
         -- hl.NeoTreeNormalNC = { bg = background }
         -- hl.Normal = { bg = background }
@@ -31,18 +31,11 @@ return {
         hl.GitSignsChange = { fg = "#D4CB68" } -- A more muted yellow
         hl.GitSignsDelete = { fg = "#E57373" } -- A softer red
         -- hl.CursorLine = { bg = "#1A1A1A" } -- A slightly lighter black for better visibility
+        --
+        -- hl.BufferLineIndicatorSelected = { fg = "#4444ff" }
       end,
     },
   },
-
-  {
-    "maxmx03/solarized.nvim",
-    lazy = false,
-    priority = 1000,
-    ---@type solarized.config
-    opts = {},
-  },
-
   -- Lazy
   {
     "vague2k/vague.nvim",
@@ -72,7 +65,7 @@ return {
     opts = {
       -- colorscheme = "base16-da-one-gray",
       -- colorscheme = "base16-cirus",
-      colorscheme = "tokyonight-night",
+      colorscheme = "tokyonight-moon",
     },
   },
 }
