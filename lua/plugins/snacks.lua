@@ -6,7 +6,8 @@ return {
     dim = { enabled = false },
     notifier = {
       enabled = true,
-      style = "compact",
+      style = "fancy",
+      padding = false,
     },
     indent = {
       enabled = true,
@@ -28,7 +29,7 @@ return {
 
     vim.api.nvim_set_hl(0, "SnacksNotifierIconError", { fg = "#F70067" })
     vim.api.nvim_set_hl(0, "SnacksNotifierTitleError", { fg = "#F70067" })
-    vim.api.nvim_set_hl(0, "SnacksNotifierBorderError", { fg = "#8A1F1F" })
+    vim.api.nvim_set_hl(0, "SnacksNotifierBorderError", { fg = "#8A1F1F", bold = true })
     vim.api.nvim_set_hl(0, "SnacksNotifierFooterError", { fg = "#F70067", italic = true })
 
     vim.api.nvim_set_hl(0, "SnacksNotifierIconWarn", { fg = "#F79000" })
