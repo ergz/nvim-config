@@ -4,11 +4,14 @@ return {
     words = { enabled = false },
     scroll = { enabled = false },
     dim = { enabled = false },
+    ---@class snacks.notifier.Config
     notifier = {
       enabled = true,
-      style = "fancy",
       padding = false,
+      style = "fancy",
+      timeout = 1500,
     },
+    ---@class snacks.indent.Config
     indent = {
       enabled = true,
       indent = {
