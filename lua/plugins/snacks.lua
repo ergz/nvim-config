@@ -54,5 +54,6 @@ return {
     vim.api.nvim_set_hl(0, "SnacksNotifierTitleTrace", { fg = "#D484FF" })
     vim.api.nvim_set_hl(0, "SnacksNotifierBorderTrace", { fg = "#4F3552" })
     vim.api.nvim_set_hl(0, "SnacksNotifierFooterTrace", { fg = "#D484FF", italic = true })
+    -- vim.api.nvim_set_hl(0, "SnacksIndentScope", { fg = "#2b8fff" })
   end,
 }

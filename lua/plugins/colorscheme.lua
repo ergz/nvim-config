@@ -1,4 +1,4 @@
-local colors = require("tokyonight.colors").setup()
+local t_colors = require("tokyonight.colors").setup()
 return {
   {
     "folke/tokyonight.nvim",
@@ -16,27 +16,25 @@ return {
       },
       -- style = "night",
       on_highlights = function(hl, cl)
-        -- background is like Tomorrow night -------------------
-        -- local background = "#1d1f21"
-        -- local foreground = "#d1daff"
-        -- hl.Normal = { fg = foreground }
-        -- hl.NeoTreeNormal = { bg = background }
-        -- hl.NeoTreeNormalNC = { bg = background }
-        -- hl.Normal = { bg = background }
-        -- hl.NormalFloat = { bg = background }
-        -- hl.NormalNC = { bg = background }
         hl.WinSeparator = { fg = "#4444ff" }
 
-        -- git gutter signs
         hl.GitSignsAdd = { fg = "#8BC34A" } -- A softer green
         hl.GitSignsChange = { fg = "#D4CB68" } -- A more muted yellow
         hl.GitSignsDelete = { fg = "#E57373" } -- A softer red
         -- hl.CursorLine = { bg = "#1A1A1A" } -- A slightly lighter black for better visibility
         hl.BufferLineIndicatorSelected = {
-          fg = colors.green,
-          bg = colors.bg,
+          fg = t_colors.green,
+          bg = t_colors.bg,
         }
         hl["@string.documentation.python"] = { link = "Comment" }
+      end,
+      --- @param colors ColorScheme
+      on_colors = function(colors)
+        local tomorrow_bg = "#1d1f21"
+        colors.bg = tomorrow_bg
+        colors.bg_dark = tomorrow_bg
+        colors.bg_float = tomorrow_bg
+        colors.bg_sidebar = tomorrow_bg
       end,
     },
   },
@@ -66,7 +64,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "vague",
+      colorscheme = "tokyonight-night",
     },
   },
 }
