@@ -5,9 +5,15 @@ return {
     ---@type table<string, snacks.win.Config>
     styles = {
       input = {
-        position = "left",
+        border = "single",
+      },
+      notifier = {
+        border = "single",
+      },
+    },
+    lazygit = {
+      win = {
         border = "double",
-        relative = "editor",
       },
     },
     ---@class snacks.input.Config
