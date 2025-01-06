@@ -17,6 +17,16 @@ return {
       right_trunc_marker = " ",
       show_tab_indicators = true,
       separator_style = "thin",
+      -- indicator = {
+      --   icon = "", -- this should be omitted if indicator style is not 'icon'
+      --   style = "icon",
+      -- },
     },
+    -- highlights = {
+    --   indicator_selected = {
+    --     fg = "#88a264",
+    --     bg = "#88a264",
+    --   },
+    -- },
   },
 }

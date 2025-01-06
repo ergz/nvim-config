@@ -1,15 +1,30 @@
 return {
   "folke/snacks.nvim",
+  ---@type snacks.Config
   opts = {
+    ---@type table<string, snacks.win.Config>
+    styles = {
+      input = {
+        position = "left",
+        border = "double",
+        relative = "editor",
+      },
+    },
+    ---@class snacks.input.Config
+    input = {
+      enabled = true,
+    },
+    ---@class snacks.words.Config
     words = { enabled = false },
+    ---@class sncaks.scroll.Config
     scroll = { enabled = false },
+    ---@class snacks.dim.Config
     dim = { enabled = false },
     ---@class snacks.notifier.Config
     notifier = {
       enabled = true,
       padding = false,
       style = "fancy",
-      timeout = 1500,
     },
     ---@class snacks.indent.Config
     indent = {

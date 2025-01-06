@@ -6,14 +6,15 @@ return {
       styles = {
         -- Style to be applied to different syntax groups
         -- Value is any valid attr-list value for `:help nvim_set_hl`
-        comments = { italic = false },
-        keywords = { italic = false },
-        functions = {},
-        variables = {},
+        -- comments = { italic = false },
+        -- keywords = { italic = false },
+        -- functions = {},
+        -- variables = {},
         -- Background styles. Can be "dark", "transparent" or "normal"
         sidebars = "dark", -- style for sidebars, see below
         floats = "dark", -- style for floating windows
       },
+      lualine_bold = true,
       -- style = "night",
       on_highlights = function(hl, cl)
         hl.WinSeparator = { fg = "#4444ff" }
@@ -23,8 +24,8 @@ return {
         hl.GitSignsDelete = { fg = "#E57373" } -- A softer red
         -- hl.CursorLine = { bg = "#1A1A1A" } -- A slightly lighter black for better visibility
         hl.BufferLineIndicatorSelected = {
-          fg = t_colors.green,
-          bg = t_colors.bg,
+          fg = t_colors.orange,
+          bg = t_colors.orange,
         }
         hl["@string.documentation.python"] = { link = "Comment" }
       end,
