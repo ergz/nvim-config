@@ -7,9 +7,10 @@ return {
       input = {
         border = "single",
       },
-      notifier = {
+      notification = {
         border = "single",
       },
+      notification_history = { border = "single" },
     },
     lazygit = {
       win = {
