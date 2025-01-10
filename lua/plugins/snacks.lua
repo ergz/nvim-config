@@ -52,6 +52,7 @@ return {
   config = function(_, opts)
     require("snacks").setup(opts)
 
+    --- make notifications look like the nvim-notify ones
     vim.api.nvim_set_hl(0, "SnacksNotifierIconError", { fg = "#F70067" })
     vim.api.nvim_set_hl(0, "SnacksNotifierTitleError", { fg = "#F70067" })
     vim.api.nvim_set_hl(0, "SnacksNotifierBorderError", { fg = "#8A1F1F", bold = true })

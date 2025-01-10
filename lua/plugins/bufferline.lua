@@ -17,6 +17,9 @@ return {
       right_trunc_marker = " ",
       show_tab_indicators = true,
       separator_style = "thin",
+      right_mouse_command = false,
+      always_show_bufferline = true,
+
       -- indicator = {
       --   icon = "", -- this should be omitted if indicator style is not 'icon'
       --   style = "icon",
