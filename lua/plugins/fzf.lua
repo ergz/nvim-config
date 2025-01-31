@@ -13,11 +13,15 @@ return {
     buffers = {
       file_icons = true,
     },
+    keymaps = {
+      ["<leader>,"] = false,
+      ["<leader>space"] = false,
+    },
   },
   keys = {
     -- { "<leader>ss", "<cmd>FzfLua grep_curbuf<cr>", desc = "Buffer" },
-    { "<C-p>", "<cmd>FzfLua buffers<cr>", { desc = "Find buffers" } },
-    { "<leader>p", "<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
+    -- { "<C-p>", "<cmd>FzfLua buffers<cr>", { desc = "Find buffers" } },
+    -- { "<leader>p", "<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
 
     -- {
     --   "<C-j>",

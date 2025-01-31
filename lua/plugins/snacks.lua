@@ -1,8 +1,70 @@
 return {
   "folke/snacks.nvim",
+  lazy = false,
+  priority = 1000,
   ---@type snacks.Config
   opts = {
-    picker = {},
+    picker = {
+      enabled = true,
+      ui_select = true,
+      sources = {
+        explorer = {
+          finder = "explorer",
+          sort = { fields = { "sort" } },
+          tree = true,
+          supports_live = true,
+          follow_file = true,
+          focus = "list",
+          auto_close = true,
+          jump = { close = false },
+          layout = { preset = "sidebar", preview = false },
+          formatters = { file = { filename_only = true } },
+          matcher = { sort_empty = true },
+          config = function(opts)
+            return require("snacks.picker.source.explorer").setup(opts)
+          end,
+          win = {
+            list = {
+              keys = {
+                ["<BS>"] = "explorer_up",
+                ["a"] = "explorer_add",
+                ["d"] = "explorer_del",
+                ["r"] = "explorer_rename",
+                ["c"] = "explorer_copy",
+                ["m"] = "explorer_move",
+                ["y"] = "explorer_yank",
+                ["<c-c>"] = "explorer_cd",
+                ["."] = "explorer_focus",
+              },
+            },
+          },
+        },
+        buffers = {
+          finder = "buffers",
+          format = "buffer",
+          hidden = false,
+          unloaded = true,
+          current = false,
+          sort_lastused = true,
+          win = {
+            input = {
+              keys = {
+                ["dd"] = "bufdelete",
+                ["<c-x>"] = { "bufdelete", mode = { "n", "i" } },
+              },
+            },
+            list = { keys = { ["dd"] = "bufdelete" } },
+          },
+        },
+      },
+      win = {
+        input = {
+          keys = {
+            ["<Esc>"] = { "close", mode = { "n", "i" } },
+          },
+        },
+      },
+    },
     ---@type table<string, snacks.win.Config>
     styles = {
       input = {
@@ -52,7 +114,28 @@ return {
   },
   keys = {
     {
+      "<A-\\>",
+      function()
+        Snacks.picker.explorer({ cwd = LazyVim.root() })
+      end,
+      desc = "Explorer Snacks (root dir)",
+    },
+    {
       "<leader>,",
+      function()
+        Snacks.picker.buffers()
+      end,
+      desc = "Buffers",
+    },
+    {
+      "<leader>p",
+      function()
+        Snacks.picker.buffers()
+      end,
+      desc = "Buffers",
+    },
+    {
+      "<C-p>",
       function()
         Snacks.picker.buffers()
       end,
