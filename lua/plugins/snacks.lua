@@ -7,6 +7,9 @@ return {
     picker = {
       enabled = true,
       ui_select = true,
+      layout = {
+        preset = "vscode",
+      },
       sources = {
         explorer = {
           finder = "explorer",
@@ -17,7 +20,6 @@ return {
           focus = "list",
           auto_close = true,
           jump = { close = false },
-          layout = { preset = "sidebar", preview = false },
           formatters = { file = { filename_only = true } },
           matcher = { sort_empty = true },
           config = function(opts)
