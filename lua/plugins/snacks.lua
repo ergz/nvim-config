@@ -1,3 +1,19 @@
+local default_layout_squared = {
+  layout = {
+    box = "horizontal",
+    width = 0.8,
+    min_width = 120,
+    height = 0.8,
+    {
+      box = "vertical",
+      border = "single",
+      title = "{title} {live} {flags}",
+      { win = "input", height = 1, border = "bottom" },
+      { win = "list", border = "none" },
+    },
+    { win = "preview", title = "{preview}", border = "single", width = 0.5 },
+  },
+}
 return {
   "folke/snacks.nvim",
   lazy = false,
@@ -7,10 +23,18 @@ return {
     picker = {
       enabled = true,
       ui_select = true,
-      layout = {
-        preset = "vscode",
-      },
+      layout = {},
       sources = {
+        files = {
+          finder = "files",
+          format = "file",
+          show_empty = true,
+          hidden = false,
+          ignored = false,
+          follow = false,
+          supports_live = true,
+          layout = default_layout_squared,
+        },
         explorer = {
           finder = "explorer",
           sort = { fields = { "sort" } },
@@ -44,6 +68,7 @@ return {
         buffers = {
           finder = "buffers",
           format = "buffer",
+          layout = default_layout_squared,
           hidden = false,
           unloaded = true,
           current = false,
