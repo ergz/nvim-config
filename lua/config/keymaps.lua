@@ -43,7 +43,9 @@ vim.api.nvim_set_keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", { noremap = true, sile
 
 -- neotree
 -- vim.keymap.set("n", "<A-\\>", "<cmd>Neotree toggle<cr>", { desc = "Toggle Neo-tree" })
--- vim.keymap.set("n", "<leader>e", "<cmd>Neotree focus<cr>", { desc = "Focus Neo-tree" })
+vim.keymap.set("n", "<leader>e", "<cmd>Neotree focus<cr>", { desc = "Focus Neo-tree" })
+
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- Prevent dd from copying to clipboard
 vim.keymap.set("n", "dd", '"_dd', { noremap = true, desc = "Delete line without copying" })

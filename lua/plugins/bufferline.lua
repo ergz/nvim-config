@@ -8,6 +8,7 @@ return {
       -- tab_size = 15,
       style_preset = {
         require("bufferline").style_preset.no_bold,
+        require("bufferline").style_preset.no_italic,
       },
       show_buffer_close_icons = false,
       buffer_close_icon = "󰅖",
