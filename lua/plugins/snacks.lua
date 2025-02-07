@@ -122,7 +122,7 @@ return {
     notifier = {
       enabled = true,
       padding = false,
-      style = "fancy",
+      style = "compact",
     },
     ---@class snacks.indent.Config
     indent = {

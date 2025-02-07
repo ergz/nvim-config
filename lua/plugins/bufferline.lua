@@ -7,6 +7,7 @@ return {
       diagnostics = false,
       -- tab_size = 15,
       style_preset = {
+        require("bufferline").style_preset.no_italic,
         require("bufferline").style_preset.no_bold,
         require("bufferline").style_preset.no_italic,
       },
