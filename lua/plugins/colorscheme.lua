@@ -61,11 +61,18 @@ return {
     end,
   },
   { "RRethy/base16-nvim" },
+  { "EdenEast/nightfox.nvim" },
   { "projekt0n/github-nvim-theme", name = "github-theme" },
+  {
+    "HoNamDuong/hybrid.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight-night",
+      colorscheme = "hybrid",
     },
   },
 }

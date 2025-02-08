@@ -35,7 +35,9 @@ return {
           supports_live = true,
           layout = default_layout_squared,
         },
-        explorer = { enabled = false },
+        explorer = {
+          auto_close = true,
+        },
         -- explorer = {
         --   finder = "explorer",
         --   sort = { fields = { "sort" } },
