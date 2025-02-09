@@ -64,7 +64,7 @@ return {
   { "EdenEast/nightfox.nvim" },
   { "projekt0n/github-nvim-theme", name = "github-theme" },
   {
-    "HoNamDuong/hybrid.nvim",
+    "ergz/hybrid.nvim",
     lazy = false,
     priority = 1000,
     opts = {
