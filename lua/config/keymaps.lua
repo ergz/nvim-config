@@ -63,3 +63,5 @@ end, { desc = "Toggle Terminal" })
 vim.keymap.set("v", "u", "<Nop>", { silent = true })
 
 vim.keymap.set("n", "<leader>dd", ":bd<CR>", { noremap = true, silent = true })
+
+vim.keymap.set("n", "q", "<Nop>", { noremap = true, silent = true })

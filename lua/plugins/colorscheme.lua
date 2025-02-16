@@ -60,9 +60,28 @@ return {
       })
     end,
   },
-  { "RRethy/base16-nvim" },
-  { "EdenEast/nightfox.nvim" },
-  { "projekt0n/github-nvim-theme", name = "github-theme" },
+  {
+    "EdenEast/nightfox.nvim",
+    opts = {
+      groups = {
+        carbonfox = {
+          CursorLine = { bg = "#0d0d0d" },
+        },
+      },
+    },
+  },
+  { "loctvl842/monokai-pro.nvim" },
+  {
+    "sainnhe/sonokai",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.g.sonokai_style = "espresso"
+      -- Optionally configure and load the colorscheme
+      -- directly inside the plugin declaration.
+      vim.g.sonokai_enable_italic = false
+    end,
+  },
   {
     "ergz/hybrid.nvim",
     lazy = false,
@@ -77,7 +96,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "hybrid",
+      colorscheme = "carbonfox",
     },
   },
 }

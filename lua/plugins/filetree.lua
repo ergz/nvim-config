@@ -5,6 +5,9 @@ return {
     ---@type oil.SetupOpts
     opts = {
       default_file_explorer = true,
+      keymaps = {
+        ["<C-s>"] = false,
+      },
     },
     -- Optional dependencies
     dependencies = { { "echasnovski/mini.icons", opts = {} } },

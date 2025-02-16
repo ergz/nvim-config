@@ -5,6 +5,7 @@ return {
       themable = true,
       color_icons = true,
       diagnostics = false,
+      scroll = false,
       -- tab_size = 15,
       style_preset = {
         require("bufferline").style_preset.no_italic,
