@@ -40,47 +40,14 @@ return {
     },
   },
   {
-    "vague2k/vague.nvim",
-    config = function()
-      require("vague").setup({
-        style = {
-          boolean = "none",
-          number = "none",
-          float = "none",
-          error = "none",
-          comments = "none",
-          conditionals = "none",
-          functions = "none",
-          headings = "none",
-          operators = "none",
-          strings = "none",
-          variables = "none",
-        },
-        -- optional configuration here
-      })
-    end,
-  },
-  {
     "EdenEast/nightfox.nvim",
     opts = {
       groups = {
         carbonfox = {
-          CursorLine = { bg = "#0d0d0d" },
+          CursorLine = { bg = "#241d31" },
         },
       },
     },
-  },
-  { "loctvl842/monokai-pro.nvim" },
-  {
-    "sainnhe/sonokai",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.g.sonokai_style = "espresso"
-      -- Optionally configure and load the colorscheme
-      -- directly inside the plugin declaration.
-      vim.g.sonokai_enable_italic = false
-    end,
   },
   {
     "ergz/hybrid.nvim",
@@ -96,7 +63,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "carbonfox",
+      colorscheme = "hybrid",
     },
   },
 }

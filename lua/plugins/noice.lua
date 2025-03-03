@@ -18,6 +18,17 @@ return {
         },
       },
     },
+    -- presets = {
+    --   lsp_doc_border = true,
+    -- },
+    lsp = {
+      hover = {
+        ---@type NoiceViewOptions
+        opts = {
+          border = "single",
+        },
+      },
+    },
   },
 }
 
