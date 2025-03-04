@@ -1,19 +1,3 @@
-local default_layout_squared = {
-  layout = {
-    box = "horizontal",
-    width = 0.8,
-    min_width = 120,
-    height = 0.8,
-    {
-      box = "vertical",
-      border = "single",
-      title = "{title} {live} {flags}",
-      { win = "input", height = 1, border = "bottom" },
-      { win = "list", border = "none" },
-    },
-    { win = "preview", title = "{preview}", border = "single", width = 0.5 },
-  },
-}
 return {
   "folke/snacks.nvim",
   lazy = false,
@@ -33,7 +17,6 @@ return {
           ignored = false,
           follow = false,
           supports_live = true,
-          layout = default_layout_squared,
         },
         explorer = {
           auto_close = true,
@@ -96,15 +79,6 @@ return {
       },
     },
     ---@type table<string, snacks.win.Config>
-    styles = {
-      input = {
-        border = "single",
-      },
-      notification = {
-        border = "single",
-      },
-      notification_history = { border = "single" },
-    },
     lazygit = {
       win = {
         border = "double",

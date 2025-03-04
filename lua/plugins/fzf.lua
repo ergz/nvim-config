@@ -1,9 +1,6 @@
 return {
   "ibhagwan/fzf-lua",
   opts = {
-    winopts = {
-      border = "single", -- Set border style to "single"
-    },
     fzf_opts = {
       ["--cycle"] = "",
     },

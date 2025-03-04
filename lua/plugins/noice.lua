@@ -4,31 +4,9 @@ return {
     cmdline = {
       view = "cmdline_popup",
     },
-    views = {
-      cmdline_popup = {
-        border = {
-          style = "single", -- Set border style to "single"
-          padding = { 0, 0 },
-        },
-      },
-      popupmenu = {
-        border = {
-          style = "single",
-          padding = { 0, 0 },
-        },
-      },
-    },
     -- presets = {
     --   lsp_doc_border = true,
     -- },
-    lsp = {
-      hover = {
-        ---@type NoiceViewOptions
-        opts = {
-          border = "single",
-        },
-      },
-    },
   },
 }
 
