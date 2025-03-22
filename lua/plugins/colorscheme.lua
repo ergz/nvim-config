@@ -1,55 +1,6 @@
 local t_colors = require("tokyonight.colors").setup()
 return {
   {
-    "folke/tokyonight.nvim",
-    opts = {
-      styles = {
-        -- Style to be applied to different syntax groups
-        -- Value is any valid attr-list value for `:help nvim_set_hl`
-        comments = { italic = false },
-        keywords = { italic = false },
-        -- functions = {},
-        -- variables = {},
-        -- Background styles. Can be "dark", "transparent" or "normal"
-        sidebars = "dark", -- style for sidebars, see below
-        floats = "dark", -- style for floating windows
-      },
-      lualine_bold = true,
-      -- style = "night",
-      on_highlights = function(hl, cl)
-        -- hl.WinSeparator = { fg = "#26268f" }
-
-        hl.GitSignsAdd = { fg = "#8BC34A" } -- A softer green
-        hl.GitSignsChange = { fg = "#D4CB68" } -- A more muted yellow
-        hl.GitSignsDelete = { fg = "#E57373" } -- A softer red
-        -- hl.CursorLine = { bg = "#1A1A1A" } -- A slightly lighter black for better visibility
-        hl.BufferLineIndicatorSelected = {
-          fg = t_colors.orange,
-          bg = t_colors.orange,
-        }
-        hl["@string.documentation.python"] = { link = "Comment" }
-      end,
-      --- @param colors ColorScheme
-      on_colors = function(colors)
-        -- local tomorrow_bg = "#1d1f21"
-        -- colors.bg = tomorrow_bg
-        -- colors.bg_dark = tomorrow_bg
-        -- colors.bg_float = tomorrow_bg
-        -- colors.bg_sidebar = tomorrow_bg
-      end,
-    },
-  },
-  {
-    "EdenEast/nightfox.nvim",
-    opts = {
-      groups = {
-        carbonfox = {
-          CursorLine = { bg = "#241d31" },
-        },
-      },
-    },
-  },
-  {
     "ergz/hybrid.nvim",
     lazy = false,
     priority = 1000,
@@ -61,9 +12,26 @@ return {
     },
   },
   {
+    "sainnhe/gruvbox-material",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.g.gruvbox_material_foreground = "material"
+      vim.g.gruvbox_material_background = "hard"
+      vim.g.gruvbox_material_float_style = "dim"
+      vim.g.gruvbox_material_disable_italic_comment = 1
+      vim.g.gruvbox_material_cursor = "orange"
+      vim.g.gruvbox_material_visual = "grey background"
+      vim.g.gruvbox_material_menu_selection_background = "blue"
+      vim.g.gruvbox_material_disable_italic_comment = 1
+      vim.g.gruvbox_material_enable_bold = 0
+    end,
+  },
+  { "savq/melange-nvim", lazy = false, priority = 1000 },
+  {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "hybrid",
+      colorscheme = "gruvbox-material",
     },
   },
 }

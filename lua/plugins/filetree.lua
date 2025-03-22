@@ -7,6 +7,7 @@ return {
       default_file_explorer = true,
       keymaps = {
         ["<C-s>"] = false,
+        ["<C-h>"] = { "actions.toggle_hidden", mode = "n" },
       },
     },
     -- Optional dependencies

@@ -1,3 +1,57 @@
+local default_single_border = {
+  layout = {
+    box = "horizontal",
+    width = 0.8,
+    min_width = 120,
+    height = 0.8,
+    {
+      box = "vertical",
+      border = "single",
+      title = "{title} {live} {flags}",
+      { win = "input", height = 1, border = "bottom" },
+      { win = "list", border = "none" },
+    },
+    { win = "preview", title = "{preview}", border = "single", width = 0.5 },
+  },
+}
+
+local sidebar_single_border = {
+  layout = {
+    backdrop = false,
+    width = 40,
+    min_width = 40,
+    height = 0,
+    position = "left",
+    border = "none",
+    box = "vertical",
+    {
+      win = "input",
+      height = 1,
+      border = "single",
+      title = "{title} {live} {flags}",
+      title_pos = "center",
+    },
+    { win = "list", border = "none" },
+    { win = "preview", title = "{preview}", height = 0.4, border = "top" },
+  },
+}
+
+local vscode_layout_custom = {
+  preview = false,
+  layout = {
+    backdrop = false,
+    row = 1,
+    width = 0.4,
+    min_width = 80,
+    height = 0.4,
+    border = "single",
+    box = "vertical",
+    { win = "input", height = 1, border = "single", title = "{title} {live} {flags}", title_pos = "center" },
+    { win = "list", border = "hpad" },
+    { win = "preview", title = "{preview}", border = "single" },
+  },
+}
+
 return {
   "folke/snacks.nvim",
   lazy = false,
@@ -9,6 +63,10 @@ return {
       ui_select = true,
       layout = {},
       sources = {
+        lsp_symbols = {
+          layout = default_single_border,
+        },
+        grep = { layout = default_single_border },
         files = {
           finder = "files",
           format = "file",
@@ -17,44 +75,17 @@ return {
           ignored = false,
           follow = false,
           supports_live = true,
+          layout = default_single_border,
         },
         explorer = {
           auto_close = true,
+          layout = sidebar_single_border,
         },
-        -- explorer = {
-        --   finder = "explorer",
-        --   sort = { fields = { "sort" } },
-        --   tree = true,
-        --   supports_live = true,
-        --   follow_file = true,
-        --   focus = "list",
-        --   auto_close = true,
-        --   jump = { close = false },
-        --   formatters = { file = { filename_only = true } },
-        --   matcher = { sort_empty = true },
-        --   config = function(opts)
-        --     return require("snacks.picker.source.explorer").setup(opts)
-        --   end,
-        --   win = {
-        --     list = {
-        --       keys = {
-        --         ["<BS>"] = "explorer_up",
-        --         ["a"] = "explorer_add",
-        --         ["d"] = "explorer_del",
-        --         ["r"] = "explorer_rename",
-        --         ["c"] = "explorer_copy",
-        --         ["m"] = "explorer_move",
-        --         ["y"] = "explorer_yank",
-        --         ["<c-c>"] = "explorer_cd",
-        --         ["."] = "explorer_focus",
-        --       },
-        --     },
-        --   },
-        -- },
         buffers = {
           finder = "buffers",
           format = "buffer",
-          layout = default_layout_squared,
+          -- layout = default_single_border,
+          layout = vscode_layout_custom,
           hidden = false,
           unloaded = true,
           current = false,
@@ -79,9 +110,21 @@ return {
       },
     },
     ---@type table<string, snacks.win.Config>
+    styles = {
+      notification = { border = "single" },
+      input = { border = "single" },
+      notification_history = { border = "single" },
+    },
+
+    ---@class snacks.lazygit.Config: snacks.terminal.Opts
+    ---@field args? string[]
+    ---@field theme? snacks.lazygit.Theme
     lazygit = {
-      win = {
-        border = "double",
+      theme = {
+        selectedLineBgColor = { bg = "Normal", bold = false },
+        activeBorderColor = { fg = "String" },
+        inactiveBorderColor = { fg = "Comment" },
+        defaultFgColor = { fg = "Normal", bold = false },
       },
     },
     ---@class snacks.input.Config
@@ -90,15 +133,16 @@ return {
     },
     ---@class snacks.words.Config
     words = { enabled = false },
-    ---@class sncaks.scroll.Config
     scroll = { enabled = false },
-    ---@class snacks.dim.Config
     dim = { enabled = false },
     ---@class snacks.notifier.Config
     notifier = {
       enabled = true,
       padding = false,
       style = "compact",
+      win = {
+        border = "single",
+      },
     },
     ---@class snacks.indent.Config
     indent = {
@@ -112,6 +156,9 @@ return {
         duration = {
           total = 150,
         },
+      },
+      scope = {
+        underline = true,
       },
     },
     terminal = { enabled = true },
@@ -426,6 +473,8 @@ return {
     vim.api.nvim_set_hl(0, "SnacksNotifierTitleTrace", { fg = "#D484FF" })
     vim.api.nvim_set_hl(0, "SnacksNotifierBorderTrace", { fg = "#4F3552" })
     vim.api.nvim_set_hl(0, "SnacksNotifierFooterTrace", { fg = "#D484FF", italic = true })
+
+    vim.api.nvim_set_hl(0, "SnacksIndentScope", { fg = "#00b08d" })
     -- vim.api.nvim_set_hl(0, "SnacksIndentScope", { fg = "#2b8fff" })
   end,
 }
