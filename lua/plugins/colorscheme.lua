@@ -29,9 +29,38 @@ return {
   },
   { "savq/melange-nvim", lazy = false, priority = 1000 },
   {
+    "sainnhe/everforest",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.g.everforest_background = "hard"
+      vim.g.everforest_float_style = "dim"
+      vim.g.everforest_ui_contrast = "high"
+      vim.g.everforest_enable_italic = 0
+      vim.g.everforest_colors_override = { bg0 = { "#22292d", "235" } }
+    end,
+  },
+  {
+    "sainnhe/sonokai",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.g.sonokai_style = "maia"
+    end,
+  },
+  {
+    "sainnhe/edge",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.g.edge_style = "neon"
+      vim.g.edge_dim_foreground = 0
+    end,
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox-material",
+      colorscheme = "everforest",
     },
   },
 }
