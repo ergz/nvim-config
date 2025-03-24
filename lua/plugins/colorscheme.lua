@@ -37,7 +37,7 @@ return {
       vim.g.everforest_float_style = "dim"
       vim.g.everforest_ui_contrast = "high"
       vim.g.everforest_enable_italic = 0
-      vim.g.everforest_colors_override = { bg0 = { "#22292d", "235" } }
+      vim.g.everforest_colors_override = { bg0 = { "#22292d", "235" }, bg_visual = { "#384B5E", "60" } }
     end,
   },
   {
