@@ -80,6 +80,7 @@ return {
         explorer = {
           auto_close = true,
           layout = sidebar_single_border,
+          watch = false,
         },
         buffers = {
           finder = "buffers",
@@ -151,15 +152,16 @@ return {
         char = "│",
       },
       animate = {
-        style = "down",
+        style = "out",
         easing = "linear",
         duration = {
-          total = 150,
+          total = 200,
         },
       },
       scope = {
-        underline = true,
+        underline = false,
       },
+      chunk = { enabled = false },
     },
     terminal = { enabled = true },
   },

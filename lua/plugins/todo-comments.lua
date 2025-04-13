@@ -6,6 +6,11 @@ return {
       highlight = {
         after = "",
       },
+      colors = {
+        info = { "#00aaff" },
+        error = { "#ff5454" },
+        hint = { "#aaff7f" },
+      },
     },
   },
 }

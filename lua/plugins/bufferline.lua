@@ -3,7 +3,7 @@ return {
   opts = {
     options = {
       themable = true,
-      color_icons = true,
+      color_icons = false,
       diagnostics = false,
       scroll = false,
       -- tab_size = 15,
@@ -22,17 +22,18 @@ return {
       separator_style = "thin",
       right_mouse_command = false,
       always_show_bufferline = true,
+      max_prefix_length = 5,
+      enforce_regular_tabs = false,
 
-      -- indicator = {
-      --   icon = "", -- this should be omitted if indicator style is not 'icon'
-      --   style = "icon",
-      -- },
+      indicator = {
+        style = "none",
+      },
     },
-    -- highlights = {
-    --   indicator_selected = {
-    --     fg = "#88a264",
-    --     bg = "#88a264",
-    --   },
-    -- },
+    highlights = {
+      buffer_selected = {
+        fg = "#FFFFFF",
+        bg = "#2d363b",
+      },
+    },
   },
 }

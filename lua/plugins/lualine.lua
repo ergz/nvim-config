@@ -44,6 +44,39 @@ local custom_theme = {
   },
 }
 
+local everforest_custom_theme = {
+  normal = {
+    a = { fg = "#000000", bg = "#A7C080", gui = "bold" }, -- Pure black on vibrant green
+    b = { fg = "#FFFFFF", bg = "#22292d", gui = "bold" }, -- White text on your suggested dark bg
+    c = { fg = "#D3C6AA", bg = "#1A1E22" }, -- Even darker background for main section
+  },
+  insert = {
+    a = { fg = "#000000", bg = "#7DCFFF", gui = "bold" }, -- Bright sky blue for insert mode
+    b = { fg = "#FFFFFF", bg = "#22292d", gui = "bold" },
+    c = { fg = "#D3C6AA", bg = "#1A1E22" },
+  },
+  visual = {
+    a = { fg = "#000000", bg = "#FF9E64", gui = "bold" }, -- Bright orange for visual mode
+    b = { fg = "#FFFFFF", bg = "#22292d", gui = "bold" },
+    c = { fg = "#D3C6AA", bg = "#1A1E22" },
+  },
+  replace = {
+    a = { fg = "#000000", bg = "#F7768E", gui = "bold" }, -- Hot pink/red for replace mode
+    b = { fg = "#FFFFFF", bg = "#22292d", gui = "bold" },
+    c = { fg = "#D3C6AA", bg = "#1A1E22" },
+  },
+  command = {
+    a = { fg = "#000000", bg = "#BB9AF7", gui = "bold" }, -- Bright purple for command mode
+    b = { fg = "#FFFFFF", bg = "#22292d", gui = "bold" },
+    c = { fg = "#D3C6AA", bg = "#1A1E22" },
+  },
+  inactive = {
+    a = { fg = "#FFFFFF", bg = "#3D484D", gui = "bold" }, -- White text for inactive mode
+    b = { fg = "#AAAAAA", bg = "#22292d" },
+    c = { fg = "#888888", bg = "#1A1E22" },
+  },
+}
+
 return {
   {
     "nvim-lualine/lualine.nvim",
@@ -51,7 +84,7 @@ return {
       options = {
         section_separators = "",
         component_separators = "",
-        theme = custom_theme,
+        theme = everforest_custom_theme,
       },
       sections = {
         lualine_a = { "mode" },
@@ -71,6 +104,15 @@ return {
           -- NOTE: use this if want pretty relative path
           { LazyVim.lualine.pretty_path() },
           -- { "filename", path = 1 },
+          -- {
+          --   function()
+          --     return require("nvim-treesitter").statusline({
+          --       indicator_size = 70,
+          --       type_patterns = { "class", "function", "method" },
+          --       separator = " -> ",
+          --     })
+          --   end,
+          -- },
         },
         lualine_z = {},
       },
