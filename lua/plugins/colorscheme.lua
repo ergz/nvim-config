@@ -29,6 +29,7 @@ local everocean_overrides = {
 }
 local everforest_harder_overrides = { bg0 = { "#22292d", "235" }, bg_visual = { "#384B5E", "60" } }
 local gruvbox_material_harder_overrides = { fg0 = { "#f0d7ac", "235" } }
+local carbonfox_pal_overrides = { sel0 = 0 }
 return {
   {
     "ergz/hybrid.nvim",
@@ -94,7 +95,7 @@ return {
 
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "carbonfox",
+      colorscheme = "hybrid",
     },
   },
 }

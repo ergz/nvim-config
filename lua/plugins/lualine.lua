@@ -84,7 +84,7 @@ return {
       options = {
         section_separators = "",
         component_separators = "",
-        theme = everforest_custom_theme,
+        theme = custom_theme,
       },
       sections = {
         lualine_a = { "mode" },

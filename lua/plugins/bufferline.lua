@@ -29,11 +29,11 @@ return {
         style = "none",
       },
     },
-    highlights = {
-      buffer_selected = {
-        fg = "#FFFFFF",
-        bg = "#2d363b",
-      },
-    },
+    -- highlights = {
+    --   buffer_selected = {
+    --     fg = "#FFFFFF",
+    --     bg = "#2d363b",
+    --   },
+    -- },
   },
 }
