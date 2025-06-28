@@ -1,6 +1,6 @@
 return {
   "folke/which-key.nvim",
   opts = {
-    win = { border = "single" },
+    win = { border = "rounded" },
   },
 }

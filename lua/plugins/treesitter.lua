@@ -7,7 +7,7 @@ return {
       "svelte",
       "terraform",
       "hcl",
-      "go",
+      -- "go",
       -- "gomod",
       -- "gowork",
       -- "gosum",

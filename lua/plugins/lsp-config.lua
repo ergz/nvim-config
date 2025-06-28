@@ -1,14 +1,10 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    ---@class PluginLspOpts
     opts = {
-      document_highlight = {
-        enabled = false,
-      },
-      ---@type lspconfig.options
+      document_highlight = { enabled = false },
       servers = {
-        -- pyright will be automatically installed with mason and loaded with lspconfig
+        ty = false,
         pyright = {},
         ts_ls = {},
         svelte = {},

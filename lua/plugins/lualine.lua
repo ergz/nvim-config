@@ -4,7 +4,7 @@ local icons = LazyVim.config.icons
 local colors = {
   bg = "#1f2023",
   line = "#2a2c32",
-  fg = "#cdcdcd",
+  fg = "#e3e3e3",
   comment = "#646477",
 
   keyword = "#2b8fff", -- Electric blue (normal)
@@ -20,7 +20,7 @@ local custom_theme = {
   normal = {
     a = { fg = "#ffffff", bg = colors.keyword, gui = "bold" },
     b = { fg = colors.fg, bg = colors.line },
-    c = { fg = colors.comment, bg = colors.bg },
+    c = { fg = colors.fg, bg = colors.bg },
   },
   insert = {
     a = { fg = "#ffffff", bg = colors.func, gui = "bold" },
