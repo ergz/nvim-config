@@ -6,12 +6,12 @@ local default_single_border = {
     height = 0.8,
     {
       box = "vertical",
-      border = "single",
+      border = "rounded",
       title = "{title} {live} {flags}",
       { win = "input", height = 1, border = "bottom" },
       { win = "list", border = "none" },
     },
-    { win = "preview", title = "{preview}", border = "single", width = 0.5 },
+    { win = "preview", title = "{preview}", border = "rounded", width = 0.5 },
   },
 }
 
@@ -27,7 +27,7 @@ local sidebar_single_border = {
     {
       win = "input",
       height = 1,
-      border = "single",
+      border = "rounded",
       title = "{title} {live} {flags}",
       title_pos = "center",
     },
@@ -44,7 +44,7 @@ local vscode_layout_custom = {
     width = 0.4,
     min_width = 80,
     height = 0.4,
-    border = "single",
+    border = "rounded",
     box = "vertical",
     { win = "input", height = 1, border = "single", title = "{title} {live} {flags}", title_pos = "center" },
     { win = "list", border = "hpad" },
@@ -72,7 +72,7 @@ return {
           format = "file",
           show_empty = true,
           hidden = true,
-          ignored = false,
+          ignored = true,
           follow = false,
           supports_live = true,
           layout = default_single_border,
@@ -80,7 +80,7 @@ return {
         explorer = {
           auto_close = true,
           layout = sidebar_single_border,
-          watch = false,
+          watch = true,
         },
         buffers = {
           finder = "buffers",
@@ -112,9 +112,9 @@ return {
     },
     ---@type table<string, snacks.win.Config>
     styles = {
-      notification = { border = "single" },
-      input = { border = "single" },
-      notification_history = { border = "single" },
+      notification = { border = "rounded" },
+      input = { border = "rounded" },
+      notification_history = { border = "rounded" },
     },
 
     ---@class snacks.lazygit.Config: snacks.terminal.Opts
@@ -142,7 +142,7 @@ return {
       padding = false,
       style = "compact",
       win = {
-        border = "single",
+        border = "rounded",
       },
     },
     ---@class snacks.indent.Config

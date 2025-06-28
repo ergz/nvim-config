@@ -8,13 +8,13 @@ return {
     views = {
       cmdline_popup = {
         border = {
-          style = "single", -- Set border style to "single"
+          style = "rounded", -- Set border style to "single"
           padding = { 0, 0 },
         },
       },
       popupmenu = {
         border = {
-          style = "single",
+          style = "rounded",
           padding = { 0, 0 },
         },
       },
@@ -23,7 +23,7 @@ return {
       hover = {
         ---@type NoiceViewOptions
         opts = {
-          border = "single",
+          border = "rounded",
         },
       },
     },
