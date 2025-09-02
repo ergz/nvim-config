@@ -10,6 +10,7 @@ return {
       end,
     },
   },
+  { "projekt0n/github-nvim-theme", name = "github-theme", lazy = false, priority = 1000 },
   {
     "folke/tokyonight.nvim",
     lazy = false,
@@ -19,7 +20,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight-night",
+      colorscheme = "tokyonight-moon",
     },
   },
 }
