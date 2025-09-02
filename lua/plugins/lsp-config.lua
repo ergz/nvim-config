@@ -10,7 +10,7 @@ return {
         svelte = {},
         ruff_lsp = false,
         clangd = {},
-        gopls = {},
+        gopls = false,
       },
     },
   },
